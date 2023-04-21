@@ -7,53 +7,64 @@
     <!--<link rel="stylesheet" href="./bootstrap/css/bootstrap.css" />-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="jquery-3.6.0.js"></script>
-    <script src="./bootstrap/js/bootstrap.js"></script>
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+    <!--<script src="./bootstrap/js/bootstrap.js"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
 </head>
-<body data-spy="scroll" data-target="#main-nav" id="#home">
+<body>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
+            <!-- bottone a tre righe per responsiveness-->
+            <button type="button" class="navbar-toggle" data-bs-toggle="collapse" data-bs-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
             <a class="navbar-brand" href="#">WEvent</a>
           </div>
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <!-- menu a discesa per le categorie -->
-            <li class="dropdown" id="categorie">
-              <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" data-bs-target="categorie" href="#">Categoria
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li class="dropdown-item"><a href="#"> Categoria 1</a></li>
-                <li class="dropdown-item"><a href="#"> Categoria 2</a></li>
-                <li class="dropdown-item"><a href="#"> Categoria 3</a></li>
-              </ul>    
-            </li>
-            <!--fine menu a discesa-->
-            <li><a href="#">Page 2</a></li>
-            <li><a href="#">Page 3</a></li>
-          </ul>
+          <!-- contenitore per responsiveness-->
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <!-- menu a discesa per le categorie -->
+              <li class="dropdown" id="categorie">
+                <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" data-bs-target="categorie" href="#">Categoria
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-item"><a href="#"> Categoria 1</a></li>
+                  <li class="dropdown-item"><a href="#"> Categoria 2</a></li>
+                  <li class="dropdown-item"><a href="#"> Categoria 3</a></li>
+                </ul>    
+              </li>
+              <!--fine menu a discesa-->
+              <li><a href="#">Page 2</a></li>
+            </ul>
 
-          <!-- barra di ricerca-->
-          <form class="navbar-form navbar-left" action="/action_page.php">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-          </form>
+            <!-- barra di ricerca-->
+            <form class="navbar-form navbar-left" action="/action_page.php">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
 
-          <!-- area riservata e logout-->
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Area Riservata </a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-          </ul>
+            <!-- area riservata e logout-->
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#"><span class="glyphicon glyphicon-user"></span> Area Riservata </a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+            </ul>
+          </div>
         </div>
     </nav>
     
     <div class="container">
-        <h3>Inverted Navbar</h3>
-        <p>An inverted navbar is black instead of gray.</p>
+        <h3>Eventi a cui sei iscritto ...</h3>
+        <p>inserire eventi</p>
+
+        <h3>... ed eventi che ti potrebbero piacere</h3>
+        <p>inserire eventi</p>
     </div>
     
     
