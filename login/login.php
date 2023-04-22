@@ -1,0 +1,6 @@
+<!-- CONTROLLO SE LA CONNESSIONE SIA DI TIPO POST -->
+<?php
+
+    
+
+?>

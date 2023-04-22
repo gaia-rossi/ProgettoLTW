@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- IMPORT CSS/BOOTSTRAP -->
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="./index.css"/>
+
+    <!--UTILIZZO JQUERY  -->
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#icon").on({
+                mouseenter: function(){
+                    $("#mobile").slideDown();
+                    $("#mobile").css("visibility", "visible");
+                },
+                mouseleave: function(){
+                    $("#mobile").slideUp();
+                    $("#mobile").css("visibility", "hidden");
+                },
+                click: function() {
+                    $("#icon").fadeOut();
+                    $("#mobile").fadeOut();
+                }
+            });
+        });
+    </script>
+
+    <title>Pagina iniziale</title>
+</head>
+<body class="text-center">
+    <div class="div-all" id="zona-dinamica">
+        <form>
+            <div>
+                <a href="../login/login.html">
+                    <img src="./login/stadium.png" alt="Icona" class="format-icon" id="icon"/>
+                </a>
+            </div>
+            <div id="mobile" class="hide mb-5"> 
+                <h1>WEvent</h1>
+            </div>
+            <br>
+        </form>
+    </div>
+</body>
+</html>
