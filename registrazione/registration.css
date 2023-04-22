@@ -12,6 +12,19 @@ body {
   color: white;
 }
 
+.myname {
+    display: flex;
+    width: 100%;
+}
+
+.col1 {
+    margin-right: 2px;
+}
+
+.col2 {
+    margin-left: 2px;
+}
+
 .format-white {
   margin: 0px;
   padding: 0px;
