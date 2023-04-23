@@ -1,3 +1,10 @@
+<!--<?php 
+      if($_SERVER["REQUEST_METHOD"] != "POST"){
+        header("Location: /");
+      }else {
+        $dbconn = pg_connect("host=localhost user=postgres password=1234 port=5432 dbname=provaEvento") or die('Could not connect: ' . pg_last_error());
+      }
+?>-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,10 +78,26 @@
             <div class="modal-header"> <!-- HEADER-->
               <button class="btn-close" data-dismiss="modal"></button> <!--crocetta per chiudere-->
             </div>
-            <div class="modal-body">Inserire form di registrazione evento</div> <!--BODY-->
-            <div class="modal-footer"> <!--FOOTER-->
-                  <button type="submit" class="btn btn-outline-success">Crea evento </button>
-                  <button type="reset" class="btn btn-outline-warning">Reset </button>
+            <div class="modal-body">
+              <form action="creaEvento.php" method="post" name="creazioneEvento">
+                nome evento:
+                <input type="text" name="nomeEvento" size="50" maxlength="50" required>
+                <br>
+                data evento:
+                <input type="date" name="dataEvento" required>
+                <br>
+                pagina Web:
+                <input type="url" name="pweb" size="50" maxlength="50">
+                <br>       
+                ulteriori info:
+                <input type="text" name="infoEvento" size="50" maxlength="50">
+                <br>   
+                <br>
+                <button type="submit" class="btn btn-outline-success">Crea evento </button>
+                <button type="reset" class="btn btn-outline-warning">Reset </button>
+              </form>
+            </div> <!--BODY-->
+            <div class="modal-footer"> <!--FOOTER-->  
                   <button class="btn btn-danger" data-dismiss="modal">Chiudi</button>
             </div>
           </div>
@@ -83,7 +106,20 @@
 
         <h3>Eventi a cui sei iscritto ...</h3>  
         <p>inserire eventi</p>
-
+        <!--<?php
+          if($dbconn){
+            $query = "SELECT * from utente where $1";
+            $result = pg_query_params($dbconn, $query, array());
+            $line=pg_fetch_array($result, null, PGSQL_ASSOC);
+            while($line != false){
+              $nome=$line["nome"];
+              $data=$line["datae"];
+              echo "$nome $data <br>"; 
+            } 
+          pg_close($dbconn);
+          }
+        ?>-->
+        
         <h3>... ed eventi che ti potrebbero piacere</h3>
         <p>inserire eventi</p>       
     </div>
