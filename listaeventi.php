@@ -12,10 +12,19 @@
     <script defer src="./bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="jquery-3.6.0.js"></script>
     <title>Lista Eventi</title>
+    <style>
+        .card-b {
+            min-height: 300px;
+            min-width: 300px;
+            margin-right: 5px;
+        }
+    </style>
 </head>
 <body>
     <!--<div class="card-group">-->
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <!--<div class="row row-cols-1 row-cols-md-3 g-4">-->
+    <div class="container-fluid py-2 " style="overflow-y:scroll; overflow-y:auto;">
+        <div class="d-flex flex-row flex-nowrap">
     <?php
         if($dbconn){
             $query = "SELECT * from evento where $1";
@@ -25,21 +34,20 @@
                 $nome=$line["nome"];
                 $data=$line["datae"];
                 //echo "<button> <a href='#'> $nome <a><br> $data</button>";
-                echo"<div class='col'>";
-                echo "  <div class='card' style='width: 18rem;'>";
-                echo "      <img class='card-img-top' src='./bootstrap/assets/img/bootstrap-icons.png' alt='Card image cap'>";
-                echo "      <div class='card-body'>";
-                echo"           <h5 class='card-title'>$nome</h5>";
-                echo"           <p class='card-text'>L'evento si terrà in data: $data </p>";
-                echo"           <a href='#' class='btn btn-primary'>Go somewhere</a>";                        
-                echo"       </div>";
+                echo "<div class='card card-b' style='width: 18rem;'>";
+                echo "  <img class='card-img-top' src='./bootstrap/assets/img/bootstrap-icons.png' alt='Card image cap'>";
+                echo "  <div class='card-body'>";
+                echo"       <h5 class='card-title'>$nome</h5>";
+                echo"       <p class='card-text'>L'evento si terrà in data: $data </p>";
+                echo"       <a href='#' class='btn btn-primary'>Go somewhere</a>";                        
                 echo"   </div>";
-                echo"</div>";       
+                echo"</div>";
                 $line=pg_fetch_array($result, null, PGSQL_ASSOC); 
             } 
             pg_close($dbconn);
         }
     ?>
+        </div>
     </div>
 </body>
 </html>
