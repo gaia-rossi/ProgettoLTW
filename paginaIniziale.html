@@ -1,10 +1,3 @@
-<!--<?php 
-      if($_SERVER["REQUEST_METHOD"] != "POST"){
-        header("Location: /");
-      }else {
-        $dbconn = pg_connect("host=localhost user=postgres password=1234 port=5432 dbname=provaEvento") or die('Could not connect: ' . pg_last_error());
-      }
-?>-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -106,22 +99,27 @@
 
         <h3>Eventi a cui sei iscritto ...</h3>  
         <p>inserire eventi</p>
-        <!--<?php
-          if($dbconn){
-            $query = "SELECT * from utente where $1";
-            $result = pg_query_params($dbconn, $query, array());
-            $line=pg_fetch_array($result, null, PGSQL_ASSOC);
-            while($line != false){
-              $nome=$line["nome"];
-              $data=$line["datae"];
-              echo "$nome $data <br>"; 
-            } 
-          pg_close($dbconn);
-          }
-        ?>-->
+
+        <h3 id="elencoEventi">... ed eventi che ti potrebbero piacere</h3>
+        <div id="caricaEventi">inserire eventi</div>
         
-        <h3>... ed eventi che ti potrebbero piacere</h3>
-        <p>inserire eventi</p>       
+        <script>
+          var list = document.getElementById("elencoEventi");
+          list.onclick = caricaRisorsa;
+  
+          function caricaRisorsa(e){
+              var httpRequest = new XMLHttpRequest();
+              httpRequest.onreadystatechange = gestisciResponse;
+              httpRequest.open("GET", "listaEventi.php", true);
+              httpRequest.send();
+          }
+  
+          function gestisciResponse(e){
+              if(e.target.readyState == 4 && e.target.status == 200){
+                  document.getElementById("caricaEventi").innerHTML = e.target.responseText;
+              }
+          }  
+        </script>     
     </div>
     
     
