@@ -8,19 +8,28 @@ function check_form() {
 
                 if (check_pswrd()) {
 
-                    if (check_city()) {
+                    if (check_region()) {
 
-                        var remember = document.getElementById("rmbr").checked;
-                        if (remember) {
-                            window.alert("Hai scelto di essere ricordato per i prossimi accessi.");
+                        if (check_city()) {
+
+                            var remember = document.getElementById("rmbr").checked;
+                            if (remember) {
+                                window.alert("Hai scelto di essere ricordato per i prossimi accessi.");
+                            } else {
+                                window.alert("Hai scelto di non essere ricordato per i prossimi accessi");
+                            }
+                            return true;
+
                         } else {
-                            window.alert("Hai scelto di non essere ricordato per i prossimi accessi");
+
+                            alert("Devi inserire una città di residenza!");
+                            return false;
+
                         }
-                        return true;
 
                     } else {
 
-                        alert("Devi selezionare una città di residenza!");
+                        alert("Devi selezionare una regione di residenza!");
                         return false;
 
                     }
@@ -70,6 +79,10 @@ function check_mail() {
 function check_pswrd() {
     return ((document.getElementById("pswd-input").value != "")
         &&(document.getElementById("pswd-input").value == document.getElementById("pswd-confirm").value))
+}
+
+function check_region() {
+    return (document.getElementById("region-input").value != "");
 }
 
 function check_city() {

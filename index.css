@@ -5,11 +5,11 @@ body {
 
 body {
   display: flex;
-  align-items: center;
   width: 100%;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: black;
+  padding: 20px;
+  background: url('stadio_scuro.jpg') no-repeat;
+  background-position: center;
+  background-size: cover;
   color: white;
 }
 
@@ -34,4 +34,28 @@ body {
 
 h1 {
   font-size: 25px;
+}
+
+a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:active {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
 }

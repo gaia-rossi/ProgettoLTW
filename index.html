@@ -14,17 +14,9 @@
     <script>
         $(document).ready(function(){
             $("#icon").on({
-                mouseenter: function(){
-                    $("#mobile").slideDown();
-                    $("#mobile").css("visibility", "visible");
-                },
-                mouseleave: function(){
-                    $("#mobile").slideUp();
-                    $("#mobile").css("visibility", "hidden");
-                },
-                click: function() {
+                click: function(){
                     $("#icon").fadeOut();
-                    $("#mobile").fadeOut();
+                    $("#mobile").css("visibility", "visible");
                 }
             });
         });
@@ -32,19 +24,21 @@
 
     <title>Pagina iniziale</title>
 </head>
-<body class="text-center">
-    <div class="div-all" id="zona-dinamica">
+<body>
+
+    <div class="div-all text-center" id="zona-dinamica">
         <form>
             <div>
-                <a href="./login/login.html">
-                    <img src="./login/stadium.png" alt="Icona" class="format-icon" id="icon"/>
-                </a>
+                <img src="./login/stadium.png" alt="Icona" class="format-icon" id="icon"/>
             </div>
-            <div id="mobile" class="hide mb-5"> 
-                <h1>WEvent</h1>
+            <div id="mobile" class="hide mb-5">
+                <a href="./login/login.html"> 
+                    <h1>WEvent</h1>
+                </a>
             </div>
             <br>
         </form>
     </div>
+
 </body>
 </html>

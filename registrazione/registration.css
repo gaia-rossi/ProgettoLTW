@@ -5,14 +5,63 @@ body {
 
 body {
   display: flex;
+  padding: 20px;
+  justify-content: center;
   align-items: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  text-align: left;
+  width: 100%;
+  background: url('stadio_luci.jpg') no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+}
+
+.form-div {
+  position: relative;
+  width: 500px;
+  height: 650px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px grey;
+}
+
+.myform {
+  padding: 10px;
+}
+
+.myleft {
+  text-align: left;
+}
+
+.myinputs {
+  background-color: transparent;
+  border: none;
+  border-bottom: solid;
+  color: white;
+}
+
+.myinputs:focus {
+  background-color: transparent;
+  border: none;
+  border-bottom: solid;
+  color: white;
+}
+
+.options {
   background-color: black;
   color: white;
 }
 
 .myname {
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
     display: flex;
     width: 100%;
 }
@@ -45,62 +94,64 @@ body {
   width: 100%;
 }
 
-.form-div {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-}
-
 h1 {
   font-family: monospace;
 }
 
-span {
-  vertical-align: middle;
-}
-
-.form-signin {
-  max-width: 500px;
-  padding: 15px;
-}
-
-.form-signin .form-floating:focus-within {
-  z-index: 2;
-}
-
-.form-signin input[type="text"] {
-  margin-bottom: 1px;
-  border-bottom-right-radius: 2;
-  border-bottom-left-radius: 2;
-}
-
-.form-signin input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 2;
-  border-top-right-radius: 2;
-}
-
 a:link {
-  color: cyan;
+  color:orangered;
   background-color: transparent;
   text-decoration: none;
+  font-weight: bold;
 }
 
 a:visited {
-  color: blue;
+  color: orangered;
   background-color: transparent;
-  text-decoration: underline;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 a:hover {
-  color: white;
-  background-color: blueviolet;
+  color: orangered;
+  background-color: none;
   text-decoration: underline;
+  font-weight: bold;
 }
 
 a:active {
-  color: white;
+  color: orangered;
   background-color: transparent;
   text-decoration: none;
+  font-weight: bold;
 }
+
+@media (max-width: 460px) {
+  body {
+    padding: 0px;
+  }
+  .form-div {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 5px;
+  }
+  .myform {
+    padding: 0px;
+  }
+  .flexbox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .mymedia {
+    width: 100%;
+    padding: 0px;
+  }
+  .col {
+    width: 100%;
+  }
+}
+
