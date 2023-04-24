@@ -33,7 +33,6 @@
             while($line != false){
                 $nome=$line["nome"];
                 $data=$line["datae"];
-                //echo "<button> <a href='#'> $nome <a><br> $data</button>";
                 echo "<div class='card card-b' style='width: 18rem;'>";
                 echo "  <img class='card-img-top' src='./bootstrap/assets/img/bootstrap-icons.png' alt='Card image cap'>";
                 echo "  <div class='card-body'>";
