@@ -33,9 +33,9 @@
             while($line != false){
                 $nome=$line["nome"];
                 $data=$line["datae"];
-                echo "<div class='card card-b' style='width: 18rem;'>";
-                echo "  <img class='card-img-top' src='./bootstrap/assets/img/bootstrap-icons.png' alt='Card image cap'>";
-                echo "  <div class='card-body'>";
+                echo"<div class='card card-b' style='width: 18rem;'>";
+                echo"  <img class='card-img-top' src='./bootstrap/assets/img/bootstrap-icons.png' alt='Card image cap'>";
+                echo"  <div class='card-body'>";
                 echo"       <h5 class='card-title'>$nome</h5>";
                 echo"       <p class='card-text'>L'evento si terrà in data: $data </p>";
                 echo"       <a href='#' class='btn btn-primary'>Go somewhere</a>";                        

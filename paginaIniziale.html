@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.css" />
     <script defer src="./bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="jquery-3.6.0.js"></script>
+
+    <link rel="stylesheet" href="./pagin.css">
 </head>
 <body>
   <nav class="navbar navbar-dark bg-dark navbar-expand-lg bg-light">
@@ -26,28 +28,30 @@
               Categoria
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Categoria 1</a></li>
-              <li><a class="dropdown-item" href="#">Categoria 2</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">non lo so, se serve</a></li>
+              <li><a class="dropdown-item" href="#">Concerti</a></li>
+              <li><a class="dropdown-item" href="#">Mostre e Musei</a></li>
+              <li><a class="dropdown-item" href="#">Sport</a></li>
+              <li><a class="dropdown-item" href="#">Teatro</a></li>
+              <!--<li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">non lo so, se serve</a></li>-->
             </ul>
           </li>
           <!--fine menu a discesa-->
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit"><img src="./icons/search.svg"></button>
+            <button class="btn btn-outline-success" type="submit"><img src="./icons/search.svg"  class="format-white"></button>
           </form>
         </ul>
         
         <ul class="navbar-nav justify-content-end">
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="#">
-              <img src="./icons/person-fill.svg"> Area Riservata
+              <img src="./icons/person-fill.svg"  class="format-white"> Area Riservata
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  href="#">
-              <img src="./icons/escape.svg"> Logout
+            <a class="nav-link"  href="./index.html">
+              <img src="./icons/escape.svg" class="format-white"> Logout
             </a>
           </li>
           
@@ -61,7 +65,7 @@
   <br>
   <div class="container">
     <button class="btn btn-success btn-lg float-end" data-bs-target="#myModal" data-bs-toggle="modal">
-      <img src="./icons/plus-lg.svg"> Nuovo Evento
+      <img src="./icons/plus-lg.svg"  class="format-white"> Nuovo Evento
     </button>
     <!--finestra modale che inizialmente non appare perchè nascosta -->
     <div id="myModal" class="modal fade" tabindex="-1"> <!--tabIndex a -1 rende un tasto non navigabile, se messo a 0 funziona il focus se metto il tab-->
@@ -100,10 +104,11 @@
       <p>inserire eventi</p>
 
       <h3 id="elencoEventi">... ed eventi che ti potrebbero piacere</h3>
+      <img src="./icons/chevron-down.svg" id="goDown"  class="float-end">
       <div id="caricaEventi">inserire eventi</div>
       
       <script>
-        var list = document.getElementById("elencoEventi");
+        var list = document.getElementById("goDown");
         list.onclick = caricaRisorsa;
 
         function caricaRisorsa(e){
