@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- IMPORT CSS/BOOTSTRAP -->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="./registration.css"/>
+
+    <!-- IMPORT FILE JAVASCRIPT PER VALIDAZIONE -->
+    <script src="./valid-registration.js" type="application/javascript"></script>
+    
+    <title>Sign-up page</title>
+</head>
+<body>
+
+    <div class="form-div text-center container-fluid">
+
+        <form name="registration_form" action="registration.php" method="POST" class="myform"
+            onsubmit="return check_form();">
+
+            <!-- TITOLO ED ICONA -->
+            <div class="form-group mb-3">
+                <a href="../index.html">
+                    <img src = "stadium.png" alt="Icona" class="format-icon"/>
+                </a>
+                <h1>WEvent</h1>
+            </div>
+
+            <!-- INSERIMENTO NOME UTENTE -->
+            <div class="form-group mb-1 myleft" name="div_name">
+                <img src = "person-vcard-fill.svg" alt="NomeUtente" class="format-white"/>
+                <label for="name-input">Nome utente</label>
+                <input type="text" name="insert_name" class="form-control myinputs mymedia" placeholder="Nome" id="name-input" autofocus>
+            </div>
+
+            <!-- INSERIMENTO EMAIL -->
+            <div class="form-group mb-2 myleft" name="div_mail">
+                <img src = "person-bounding-box.svg" alt="Email" class="format-white"/>
+                <label for="mail-input">Indirizzo Email</label>
+                <input name="insert_email" type="email" class="form-control myinputs mymedia" id="mail-input"
+                    placeholder="Es: abc@def.xyz">
+            </div>
+
+            <!-- INSERIMENTO PASSWORD -->
+            <div class="form-row mb-2 myname myleft flexbox">
+                <div class="col col1 mb-2">
+                    <img src = "check2.svg" alt="Password" class="format-white"/>
+                    <label for="pswd-input">Password</label>
+                    <input name="insert_pswrd" type="password" class="form-control myinputs mymedia" id="pswd-input" 
+                        placeholder="*****">
+                </div>
+                <div class="col col2 mb-2">
+                    <img src = "check2-all.svg" alt="Password2" class="format-white"/>
+                    <label for="pswd-confirm">Conferma Password</label>
+                    <input name="check_pswrd" type="password" class="form-control myinputs mymedia" id="pswd-confirm" 
+                        placeholder="*****">
+                </div>
+            </div>
+
+            <!-- INSERIMENTO REGIONE -->
+            <div class="form-row mb-3 myname myleft flexbox">
+                <div class="col col1 mb-2">
+                    <img src = "geo-alt-fill.svg" alt="Regione" class="format-white"/>
+                    <label for="region-input">Regione di residenza</label>
+                    <input type="text" name="insert_region" class="form-control myinputs mymedia" placeholder="Regione" id="region-input">
+                </div>
+                <div class="col col2 mb-2">
+                    <img src = "house-door.svg" alt="Città" class="format-white"/>
+                    <label for="city-input">Città di residenza</label>
+                    <input type="text" name="insert_city" class="form-control myinputs mymedia" placeholder="Città" id="city-input">
+                </div>
+            </div>
+
+            <!-- CHECKBOX RICORDAMI -->
+            <div class="form-check mb-3 myleft">
+                <input type="checkbox" class="form-check-input" id="rmbr">
+                <label class="form-check-label" for="rmbr">Ricordami</label>
+            </div>
+
+            <!-- BOTTONI PER INVIO FORM E RESET FORM -->
+            <div class="form-group mb-3">
+                <button type="submit" class="btn btn-outline-light"
+                    value="Invia">Registrati</button>
+                <button type="reset" class="btn btn-outline-light"
+                    value="Reset">Reset</button>
+            </div>
+            
+            <!-- REGISTRAZIONE -->
+            <div class="form-group mb-1">
+                Sei già registrato?
+                <a href="../login/login.html">Effettua il login!</a>
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
