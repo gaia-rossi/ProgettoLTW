@@ -1,0 +1,123 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+  background: url('stadio_luci.jpg') no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+}
+
+.form-div {
+  position: relative;
+  padding: 20px;
+  width: 400px;
+  height: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px grey;
+}
+
+.myform {
+  padding:10px;
+}
+
+.myleft {
+  text-align: left;
+}
+
+.myinputs {
+  background-color: transparent;
+  border: none;
+  border-bottom: solid;
+  color: white;
+}
+
+.myinputs:focus {
+  background-color: transparent;
+  border: none;
+  border-bottom: solid;
+  color: white;
+}
+
+.form-control {
+  padding-top: 5px;
+  width: 100%;
+}
+
+.format-white {
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: 5px;
+  width: 15px;
+  height: 15px;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(225deg) brightness(104%) contrast(103%);
+}
+
+.format-icon {
+  width: 50px;
+  height: 50px;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(225deg) brightness(104%) contrast(103%);
+}
+
+h1 {
+  font-family: monospace;
+}
+
+a:link {
+  color:orangered;
+  background-color: transparent;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:visited {
+  color: orangered;
+  background-color: transparent;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: orangered;
+  background-color: none;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+a:active {
+  color: orangered;
+  background-color: transparent;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+@media (max-width: 460px) {
+  body {
+    padding: 0px;
+  }
+  .form-div {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 5px;
+  }
+  .myform {
+    padding: 0px;
+  }
+}
