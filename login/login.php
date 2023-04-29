@@ -44,7 +44,7 @@
                     // LA PASSWORD INSERITA CORRISPONDE ALL'HASH SALVATO
                     $name = $line["nome"];
                     echo "<h1>Il login è andato a buon fine!</h1><br>
-                        <a href=../welcome.php?name=$name> Clicca qui per iniziare ad utilizzare il sito </a>";
+                        <a href=../paginaIniziale.html?name=$name> Clicca qui per iniziare ad utilizzare il sito </a>";
 
                 } else {
 

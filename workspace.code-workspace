@@ -1,10 +1,6 @@
 {
 	"folders": [],
 	"settings": {
-		"files.associations": {
-			"stdio.h": "c",
-			"stdbool.h": "c"
-		},
-		"liveServer.settings.multiRootWorkspaceName": "Esercizi"
+		"liveServer.settings.multiRootWorkspaceName": "Laboratori"
 	}
 }
