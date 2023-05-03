@@ -2,7 +2,7 @@
 <?php
 
     if ($_SERVER["REQUEST_METHOD"] != "POST") {
-        header("Location: /login/index.html");
+        header("Location: /login/login.html");
     } else {
         // INIALIZZO CONNESSIONE
         $dbconn = pg_connect("host=localhost port=5432
@@ -43,23 +43,22 @@
 
                     // LA PASSWORD INSERITA CORRISPONDE ALL'HASH SALVATO
                     $name = $line["nome"];
-                    echo "<h1>Il login è andato a buon fine!</h1><br>
-                        <a href=../paginaIniziale.html?name=$name> Clicca qui per iniziare ad utilizzare il sito </a>";
+                    header("Location: ../paginaIniziale.html?name=$name");
+                    exit();
 
                 } else {
 
                     // NESSUNA CORRISPONDENZA CON LA PASSWORD
-                    echo "<h1>La password è sbagliata!</h1><br>
-                        <a href=login.html> Clicca qui per riprovare il login </a>";
+                    header("Location: ../login/retry.html");
+                    exit();
 
                 }
             
             } else {
 
                 // NON HO TROVATO L'INDIRIZZO EMAIL NEL DATABASE
-                echo "<h1>L'indirizzo e-mail non appartiene a nessun utente registrato!</h1>
-                    <a href=../registrazione/registration.html> Clicca qui per registrarti </a>";
-
+                header("Location: ../registrazione/pre_registration.html");
+                exit();
             }
 
         }

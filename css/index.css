@@ -7,7 +7,7 @@ body {
   display: flex;
   width: 100%;
   padding: 20px;
-  background: url('stadio_scuro.jpg') no-repeat;
+  background: url('../pictures/stadio_scuro.jpg') no-repeat;
   background-position: center;
   background-size: cover;
   color: white;
