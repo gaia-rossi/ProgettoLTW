@@ -9,6 +9,15 @@
     <script src="jquery-3.6.0.js"></script>
 
     <link rel="stylesheet" href="./pagin.css">
+    <script>
+      function stampaStorage(){    
+        var j = JSON.parse(localStorage.utente);
+        var res = new String("<h3> Stato attuale di local storage </h3>");
+        res += JSON.stringify(j) + "<br />";
+        document.getElementById("roba a caso").innerHTML = res;
+        return true;
+      }
+    </script>
 </head>
 <body>
   <nav class="navbar navbar-dark bg-dark navbar-expand-lg bg-light">
@@ -145,6 +154,8 @@
       </script>     
   </div>
     
-    
+  <div id="roba a caso" onclick="stampaStorage()">
+    clicca
+  </div>
 </body>
 </html>
