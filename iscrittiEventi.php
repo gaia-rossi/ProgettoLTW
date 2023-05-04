@@ -33,7 +33,7 @@
             $line=pg_fetch_array($result, null, PGSQL_ASSOC);
             while($line != false){
                 $nome=$line["nome"];
-                $data=$line["dataE"];
+                $data=$line["datae"];
                 echo"<div class='card card-b' style='width: 18rem;'>";
                 echo"  <img class='card-img-top' src='./bootstrap/assets/img/bootstrap-icons.png' alt='Card image cap'>";
                 echo"  <div class='card-body'>";

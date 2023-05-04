@@ -6,10 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.css" />
     <script defer src="./bootstrap/js/bootstrap.bundle.min.js"></script>
-    
-
     <link rel="stylesheet" href="./pagin.css">
+
+    <!--utilizzo localStorage-->
     <script>
+      function inizializzaStorage(){
+        var x = JSON.parse(localStorage.utente);
+        var email = x["email"];
+        document.getElementById("orID").value = email;
+        /*$.ajax({
+          url: "paginaEvento.php",
+          method: "post",
+          data: email,
+          success : function(){alert(localStorage.utente + " inviato correttamente");} 
+        });  */
+        return true;
+      }
+
       function stampaStorage(){    
         var j = JSON.parse(localStorage.utente);
         var res = new String("<h3> Stato attuale di local storage </h3>");
@@ -19,23 +32,19 @@
       }
     </script>
 </head>
-<body>
+<body onload="inizializzaStorage()">
+
+  
+  <script>
+    var x = JSON.parse(localStorage.utente);
+    var email = x["email"]; 
+    
+  </script>
+
   <!-- SCRIPT JQUERY E AJAX -->
   <script src="jquery-3.6.0.js"></script>
   <script>
     $(document).ready(function(){
-        /*$("#iscrizioni").click(function(){
-            $("#zona"+this.id).load("iscrittiEventi.php",
-                function(responseTxt, statusTxt, xhr){
-                    if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
-            });
-        });
-        $("#eventi").click(function(){
-            $("#zona"+this.id).load("listaEventi.php",
-                function(responseTxt, statusTxt, xhr){
-                    if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
-            });
-        });*/
         $("#zonaiscrizioni").load("iscrittiEventi.php",
             function(responseTxt, statusTxt, xhr){
                 if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
@@ -46,6 +55,7 @@
         });
     });
 </script>
+  <!--NAVBAR-->
   <nav class="navbar navbar-dark bg-dark navbar-expand-lg bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">WEvent</a>
@@ -112,17 +122,27 @@
           <div class="modal-body">
             <form action="creaEvento.php" method="post" name="creazioneEvento">
               nome evento:
-              <input type="text" name="nomeEvento" size="50" maxlength="50" required>
+              <input type="text" name="nomeEvento" size="40" maxlength="40" required>
               <br>
               data evento:
               <input type="date" name="dataEvento" required>
               <br>
-              pagina Web:
-              <input type="url" name="pweb" size="50" maxlength="50">
-              <br>       
-              ulteriori info:
-              <input type="text" name="infoEvento" size="50" maxlength="50">
+              categoria:
+              <select name="categoria" required>
+                <option></option>
+                <option value="Concerti"> Concerti</option>
+                <option value="MostreEMusei"> Mostre e musei</option>
+                <option value="Teatro"> Teatro</option>
+                <option value="Sport"> Sport</option>
+              </select>
+              <br>
+              <br>    
+              info evento:
+              <textarea name="infoEvento" size="100" maxlength="100"></textarea>
               <br>   
+              <br>
+              organizzatore:
+              <input type="text" name="organizzatore" id="orID" size="40" maxlength="40" readonly>
               <br>
               <button type="submit" class="btn btn-outline-success">Crea evento </button>
               <button type="reset" class="btn btn-outline-warning">Reset </button>

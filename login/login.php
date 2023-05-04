@@ -6,7 +6,7 @@
     } else {
         // INIALIZZO CONNESSIONE
         $dbconn = pg_connect("host=localhost port=5432
-            dbname=WEventData user=postgres password=1234")
+            dbname=WEvent user=postgres password=1234")
             or die('Could not connect: ' . pg_last_error());
     }
 

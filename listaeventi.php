@@ -1,5 +1,5 @@
 <?php 
-    $dbconn = pg_connect("host=localhost user=postgres password=1234 port=5432 dbname=provaEvento") 
+    $dbconn = pg_connect("host=localhost user=postgres password=1234 port=5432 dbname=WEvent") 
     or die('Could not connect: ' . pg_last_error());
 ?>
 <!DOCTYPE html>
@@ -19,6 +19,7 @@
             margin-right: 5px;
         }
     </style>
+
 </head>
 <body>
     <!--<div class="card-group">-->
