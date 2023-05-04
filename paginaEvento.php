@@ -30,7 +30,7 @@
         echo "<h1>" . $_GET["evento"]. "</h1>";
         echo "<br>";
         echo "<h3> Data Evento " . $_GET["data"] . "</h3>";
-        #print_r($_POST);
+        //print_r($_POST);
     ?>
     <div class="container">
         <button class="btn btn-success btn-lg float-end">

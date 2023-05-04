@@ -12,14 +12,14 @@
     <script>
       function inizializzaStorage(){
         var x = JSON.parse(localStorage.utente);
-        var email = x["email"];
+        var e = x["email"];
         document.getElementById("orID").value = email;
         /*$.ajax({
           url: "paginaEvento.php",
           method: "post",
-          data: email,
+          data: {"email" : e},
           success : function(){alert(localStorage.utente + " inviato correttamente");} 
-        });  */
+        });*/
         return true;
       }
 
