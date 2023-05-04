@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.css" />
     <script defer src="./bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="jquery-3.6.0.js"></script>
+    
 
     <link rel="stylesheet" href="./pagin.css">
     <script>
@@ -20,6 +20,32 @@
     </script>
 </head>
 <body>
+  <!-- SCRIPT JQUERY E AJAX -->
+  <script src="jquery-3.6.0.js"></script>
+  <script>
+    $(document).ready(function(){
+        /*$("#iscrizioni").click(function(){
+            $("#zona"+this.id).load("iscrittiEventi.php",
+                function(responseTxt, statusTxt, xhr){
+                    if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
+            });
+        });
+        $("#eventi").click(function(){
+            $("#zona"+this.id).load("listaEventi.php",
+                function(responseTxt, statusTxt, xhr){
+                    if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
+            });
+        });*/
+        $("#zonaiscrizioni").load("iscrittiEventi.php",
+            function(responseTxt, statusTxt, xhr){
+                if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
+        });
+        $("#zonaeventi").load("listaEventi.php",
+            function(responseTxt, statusTxt, xhr){
+                if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
+        });
+    });
+</script>
   <nav class="navbar navbar-dark bg-dark navbar-expand-lg bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">WEvent</a>
@@ -110,48 +136,12 @@
     </div>
 
       <h3>Eventi a cui sei iscritto ...</h3>  
-      <img src="./icons/chevron-down.svg" id="goDown1"  class="float-center">
-      <div id="mieiEventi">inserire eventi</div>
-      <!--
-      <script>
-        var list = document.getElementById("goDown1");
-        list.onclick = caricaRisorsa;
-
-        function caricaRisorsa(e){
-            var httpRequest1 = new XMLHttpRequest();
-            httpRequest1.onreadystatechange = gestisciResponse;
-            httpRequest1.open("GET", "iscrittiEventi.php", true);
-            httpRequest1.send();
-        }
-
-        function gestisciResponse(e){
-            if(e.target.readyState == 4 && e.target.status == 200){
-                document.getElementById("mieiEventi").innerHTML = e.target.responseText;
-            }
-        }  
-      </script>-->
+      <div id="zonaiscrizioni">...</div>
+      
 
       <h3 id="elencoEventi">... ed eventi che ti potrebbero piacere</h3>
-      <img src="./icons/chevron-down.svg" id="goDown2"  class="float-end">
-      <div id="caricaEventi">inserire eventi</div>
+      <div id="zonaeventi">...</div>
       
-      <script>
-        var list = document.getElementById("goDown2");
-        list.onclick = caricaRisorsa;
-
-        function caricaRisorsa(e){
-            var httpRequest = new XMLHttpRequest();
-            httpRequest.onreadystatechange = gestisciResponse;
-            httpRequest.open("GET", "listaEventi.php", true);
-            httpRequest.send();
-        }
-
-        function gestisciResponse(e){
-            if(e.target.readyState == 4 && e.target.status == 200){
-                document.getElementById("caricaEventi").innerHTML = e.target.responseText;
-            }
-        }  
-      </script>     
   </div>
     
   <div id="roba a caso" onclick="stampaStorage()">
