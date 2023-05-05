@@ -14,12 +14,6 @@
         var x = JSON.parse(localStorage.utente);
         var e = x["email"];
         document.getElementById("orID").value = email;
-        /*$.ajax({
-          url: "paginaEvento.php",
-          method: "post",
-          data: {"email" : e},
-          success : function(){alert(localStorage.utente + " inviato correttamente");} 
-        });*/
         return true;
       }
 
@@ -50,6 +44,10 @@
                 if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
         });
         $("#zonaeventi").load("listaEventi.php",
+            function(responseTxt, statusTxt, xhr){
+                if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
+        });
+        $("#zonadibenvenuto").load("inizializzazioneSession.php",
             function(responseTxt, statusTxt, xhr){
                 if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
         });
@@ -106,6 +104,10 @@
   </nav>
     
   <!--navbar-->
+  <div class="container" id="zonadibenvenuto">
+    ...
+  </div>
+
   <br>
   <br>
   <div class="container">
