@@ -1,3 +1,8 @@
+<?php
+    //inizializzo la sessione
+    session_unset();
+    session_start();
+?>
 <!-- CONTROLLO SE LA CONNESSIONE SIA DI TIPO POST -->
 <?php
 
@@ -6,7 +11,7 @@
     } else {
         // INIALIZZO CONNESSIONE
         $dbconn = pg_connect("host=localhost port=5432
-            dbname=WEventData user=postgres password=1234")
+            dbname=WEvent user=postgres password=1234")
             or die('Could not connect: ' . pg_last_error());
     }
 
@@ -23,7 +28,6 @@
 <body>
     
     <?php
-
         // SE HO UNA CONNESSIONE CON IL DATABASE
         if ($dbconn) {
 
@@ -45,6 +49,11 @@
                     $name = $line["nome"];
                     echo "<h1>Il login è andato a buon fine!</h1><br>
                         <a href=../paginaIniziale.html?name=$name> Clicca qui per iniziare ad utilizzare il sito </a>";
+                    
+                    //inizializzo la sessione -gaia
+                    $_SESSION['email'] = $email;
+                    $_SESSION['nome'] = $name;
+                    print_r($_SESSION);
 
                 } else {
 

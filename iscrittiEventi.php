@@ -19,16 +19,16 @@
             margin-right: 5px;
         }
     </style>
-
 </head>
 <body>
+    ciao
     <!--<div class="card-group">-->
     <!--<div class="row row-cols-1 row-cols-md-3 g-4">-->
     <div class="container-fluid py-2 " style="overflow-y:scroll; overflow-y:auto;">
         <div class="d-flex flex-row flex-nowrap">
     <?php
         if($dbconn){
-            $query = "SELECT * from evento where $1";
+            $query = "SELECT * from iscritti where $1 limit 1";
             $result = pg_query_params($dbconn, $query, array("true"));
             $line=pg_fetch_array($result, null, PGSQL_ASSOC);
             while($line != false){
@@ -39,7 +39,7 @@
                 echo"  <div class='card-body'>";
                 echo"       <h5 class='card-title'>$nome</h5>";
                 echo"       <p class='card-text'>L'evento si terrà in data: $data </p>";
-                echo"       <a href='./paginaEvento.php?evento=$nome&data=$data' class='btn btn-primary'>Vai all'evento</a>";                        
+                echo"       <a href='./paginaEvento.php?evento=$nome&data=$data' class='btn btn-primary'>Go somewhere</a>";                        
                 echo"   </div>";
                 echo"</div>";
                 $line=pg_fetch_array($result, null, PGSQL_ASSOC); 
