@@ -18,7 +18,7 @@
     <script>
         $(document).ready(function(){
             $("#subButton").click(function(){
-                $("#roba").load("iscrizioneEvento.php",
+                $("#roba").load("./eventi/iscrizioneEvento.php",
                 function(responseTxt, statusTxt, xhr){
                     if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
                 });
