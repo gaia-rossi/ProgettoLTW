@@ -24,7 +24,6 @@
     </style>
 </head>
 <body>
-    ciao
     <!--<div class="card-group">-->
     <!--<div class="row row-cols-1 row-cols-md-3 g-4">-->
     <div class="container-fluid py-2 " style="overflow-y:scroll; overflow-y:auto;">
@@ -38,8 +37,12 @@
             while($line != false){
                 $nome=$line["nomee"];
                 $data=$line["datae"];
+                $query2 = "SELECT * from evento where nome=$1 and datae=$2";
+                $result2 = pg_query_params($dbconn, $query2, array($nome, $data));
+                $line2=pg_fetch_array($result2, null, PGSQL_ASSOC);
+                $categoria = $line2["categoria"];
                 echo"<div class='card card-b' style='width: 18rem;'>";
-                echo"  <img class='card-img-top' src='./bootstrap/assets/img/bootstrap-icons.png' alt='Card image cap'>";
+                echo"  <img class='card-img-top' src='./icons/$categoria.jpg' alt='Card image cap'>";
                 echo"  <div class='card-body'>";
                 echo"       <h5 class='card-title'>$nome</h5>";
                 echo"       <p class='card-text'>L'evento si terrà in data: $data </p>";
