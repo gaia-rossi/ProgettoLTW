@@ -39,11 +39,11 @@
   <script src="jquery-3.6.0.js"></script>
   <script>
     $(document).ready(function(){
-        $("#zonaiscrizioni").load("iscrittiEventi.php",
+        $("#zonaiscrizioni").load("./eventi/listaiscrittiEventi.php",
             function(responseTxt, statusTxt, xhr){
                 if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
         });
-        $("#zonaeventi").load("listaEventi.php",
+        $("#zonaeventi").load("./eventi/listaEventi.php",
             function(responseTxt, statusTxt, xhr){
                 if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
         });
