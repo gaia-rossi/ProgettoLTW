@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <?php 
     $dbconn = pg_connect("host=localhost user=postgres password=1234 port=5432 dbname=WEvent") 
     or die('Could not connect: ' . pg_last_error());
@@ -28,11 +31,12 @@
         <div class="d-flex flex-row flex-nowrap">
     <?php
         if($dbconn){
-            $query = "SELECT * from iscritti where $1 limit 1";
-            $result = pg_query_params($dbconn, $query, array("true"));
+            $utente = $_SESSION["email"];
+            $query = "SELECT * from iscritti where email=$1";
+            $result = pg_query_params($dbconn, $query, array($utente));
             $line=pg_fetch_array($result, null, PGSQL_ASSOC);
             while($line != false){
-                $nome=$line["nome"];
+                $nome=$line["nomee"];
                 $data=$line["datae"];
                 echo"<div class='card card-b' style='width: 18rem;'>";
                 echo"  <img class='card-img-top' src='./bootstrap/assets/img/bootstrap-icons.png' alt='Card image cap'>";
