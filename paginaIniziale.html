@@ -51,6 +51,33 @@
             function(responseTxt, statusTxt, xhr){
                 if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
         });
+        $(".dropdown-item").click(function(){
+          var x = this.id;
+          $.ajax({
+            type: "POST",
+            url: './eventi/queryiscrittiEventi.php',
+            data: {'categoria' : x},
+            success: function(result){
+              $("#zonaiscrizioni").html(result);
+            },
+            error: function(){
+              alert("Chiamata fallita!!!");
+            }
+          });
+
+          $.ajax({
+            type: "POST",
+            url: './eventi/querylistaEventi.php',
+            data: {'categoria' : x},
+            success: function(result){
+              $("#zonaeventi").html(result);
+            },
+            error: function(){
+              alert("Chiamata fallita!!!");
+            }
+          });
+        });
+        
     });
 </script>
   <!--NAVBAR-->
@@ -71,10 +98,10 @@
               Categoria
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Concerti</a></li>
-              <li><a class="dropdown-item" href="#">Mostre e Musei</a></li>
-              <li><a class="dropdown-item" href="#">Sport</a></li>
-              <li><a class="dropdown-item" href="#">Teatro</a></li>
+              <li class="dropdown-item" id="Concerti">Concerti</li>
+              <li class="dropdown-item" id="MostreEMusei">Mostre e Musei</li>
+              <li class="dropdown-item" id="Sport">Sport</li>
+              <li class="dropdown-item" id="Teatro">Teatro</li>
               <!--<li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">non lo so, se serve</a></li>-->
             </ul>
