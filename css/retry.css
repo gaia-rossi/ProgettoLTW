@@ -15,6 +15,14 @@ body {
   color: white;
 }
 
+a {
+    width: 100%;
+}
+
+button {
+    width: 100%;
+}
+
 .square {
   flex-wrap: wrap;
   display: flex;

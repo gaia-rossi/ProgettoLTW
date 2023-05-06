@@ -49,7 +49,7 @@
                 } else {
 
                     // NESSUNA CORRISPONDENZA CON LA PASSWORD
-                    header("Location: ../login/retry.html");
+                    header("Location: ./retry.html");
                     exit();
 
                 }

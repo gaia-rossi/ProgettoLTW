@@ -47,21 +47,17 @@
                 $pswrd = password_hash($_POST["insert_pswrd"], PASSWORD_BCRYPT);
                 $regione = $_POST["insert_region"];
                 $citta = $_POST["insert_city"];
-                $rmb = 0;
                 $org = 0;
-                if (isset($_POST["rmb"])) {
-                    $rmb = 1;
-                }
                 if (isset($_POST["org"])) {
                     $org = 1;
                 }
 
                 // QUERY PER INSERIRE LA NUOVA TUPLA NEL DATABASE
                 $query2 = "INSERT INTO utente
-                    (nome, email, regione, pswrd, citta, remember, organizer)
-                    VALUES ($1,$2,$3,$4,$5,$6,$7)";
+                    (nome, email, regione, pswrd, citta, organizer)
+                    VALUES ($1,$2,$3,$4,$5,$6)";
                 $result = pg_query_params($dbconn, $query2, array(
-                    $nome, $email, $regione, $pswrd, $citta, $rmb, $org
+                    $nome, $email, $regione, $pswrd, $citta, $org
                 ));
 
                 // TUPLA INSERITA
