@@ -1,5 +1,5 @@
 <?php 
-    $dbconn = pg_connect("host=localhost user=postgres password=1234 port=5432 dbname=provaEvento") 
+    $dbconn = pg_connect("host=localhost user=postgres password=1234 port=5432 dbname=WEvent") 
     or die('Could not connect: ' . pg_last_error());
 ?>
 <!DOCTYPE html>
@@ -19,6 +19,7 @@
             margin-right: 5px;
         }
     </style>
+
 </head>
 <body>
     <!--<div class="card-group">-->
@@ -33,12 +34,13 @@
             while($line != false){
                 $nome=$line["nome"];
                 $data=$line["datae"];
-                echo "<div class='card card-b' style='width: 18rem;'>";
-                echo "  <img class='card-img-top' src='./bootstrap/assets/img/bootstrap-icons.png' alt='Card image cap'>";
-                echo "  <div class='card-body'>";
+                $categoria = $line["categoria"];
+                echo"<div class='card card-b' style='width: 18rem;'>";
+                echo"  <img class='card-img-top' src='./icons/$categoria.jpg' alt='Card image cap'>";
+                echo"  <div class='card-body'>";
                 echo"       <h5 class='card-title'>$nome</h5>";
                 echo"       <p class='card-text'>L'evento si terrà in data: $data </p>";
-                echo"       <a href='#' class='btn btn-primary'>Go somewhere</a>";                        
+                echo"       <a href='./paginaEvento.php?evento=$nome&data=$data' class='btn btn-primary'>Vai all'evento</a>";                        
                 echo"   </div>";
                 echo"</div>";
                 $line=pg_fetch_array($result, null, PGSQL_ASSOC); 
