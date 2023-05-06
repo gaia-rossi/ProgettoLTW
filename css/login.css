@@ -10,7 +10,7 @@ body {
   align-items: center;
   text-align: left;
   width: 100%;
-  background: url('stadio_luci.jpg') no-repeat;
+  background: url('../pictures/stadio_luci.jpg') no-repeat;
   background-position: center;
   background-size: cover;
   color: white;

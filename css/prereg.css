@@ -1,0 +1,62 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  align-items: start;
+  text-align: center;
+  width: 100%;
+  background: url('../pictures/teatro.jpg') no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+}
+
+.form-div {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  align-items: start;
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 20px;
+  backdrop-filter: blur(50px);
+  box-shadow: 0 0 30px red;
+}
+
+h1 {
+  font-family: monospace;
+}
+
+a:link {
+  color:red;
+  background-color: transparent;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:visited {
+  color: red;
+  background-color: transparent;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: red;
+  background-color: none;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+a:active {
+  color: red;
+  background-color: transparent;
+  text-decoration: none;
+  font-weight: bold;
+}
+

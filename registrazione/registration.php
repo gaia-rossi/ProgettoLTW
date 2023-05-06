@@ -47,19 +47,23 @@
                 $pswrd = password_hash($_POST["insert_pswrd"], PASSWORD_BCRYPT);
                 $regione = $_POST["insert_region"];
                 $citta = $_POST["insert_city"];
+                $org = 0;
+                if (isset($_POST["org"])) {
+                    $org = 1;
+                }
 
                 // QUERY PER INSERIRE LA NUOVA TUPLA NEL DATABASE
                 $query2 = "INSERT INTO utente
-                    (nome, email, regione, pswrd, citta)
-                    VALUES ($1,$2,$3,$4,$5)";
+                    (nome, email, regione, pswrd, citta, organizer)
+                    VALUES ($1,$2,$3,$4,$5,$6)";
                 $result = pg_query_params($dbconn, $query2, array(
-                    $nome, $email, $regione, $pswrd, $citta
+                    $nome, $email, $regione, $pswrd, $citta, $org
                 ));
 
                 // TUPLA INSERITA
                 if ($result) {
-                    echo "<h1>La registrazione è andata a buon fine!</h1><br>";
-                    echo "<a href=../login/login.html> Clicca qui </a> per accedere!";
+                    header("Location: ../login/pre_login.html");
+                    exit();
                 } else {
                     die("La registrazione non è andata a buon fine. Prova di nuovo!");
                 }
