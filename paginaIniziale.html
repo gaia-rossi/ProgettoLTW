@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.css" />
     <script defer src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="jquery-3.6.0.js"></script>
     <link rel="stylesheet" href="./pagin.css">
 
     <!--utilizzo localStorage-->
@@ -36,7 +37,6 @@
   </script>
 
   <!-- SCRIPT JQUERY E AJAX -->
-  <script src="jquery-3.6.0.js"></script>
   <script>
     $(document).ready(function(){
         $("#zonaiscrizioni").load("./eventi/listaiscrittiEventi.php",
@@ -79,9 +79,9 @@
         });
         
     });
-</script>
+  </script>
   <!--NAVBAR-->
-  <nav class="navbar navbar-dark bg-dark navbar-expand-lg bg-light">
+  <nav class="navbar navbar-expand-lg bg-light navbar-dark bg-dark"> 
     <div class="container-fluid">
       <a class="navbar-brand" href="#">WEvent</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -106,12 +106,13 @@
               <li><a class="dropdown-item" href="#">non lo so, se serve</a></li>-->
             </ul>
           </li>
+          
+        </ul>
           <!--fine menu a discesa-->
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit"><img src="./icons/search.svg"  class="format-white"></button>
           </form>
-        </ul>
         
         <ul class="navbar-nav justify-content-end">
           <li class="nav-item">
@@ -131,13 +132,13 @@
   </nav>
     
   <!--navbar-->
-  <div class="container" id="zonadibenvenuto">
-    ...
-  </div>
+  
 
-  <br>
-  <br>
   <div class="container">
+    <div class="container" id="zonadibenvenuto">
+      ...
+    </div>
+
     <button class="btn btn-success btn-lg float-end" data-bs-target="#myModal" data-bs-toggle="modal">
       <img src="./icons/plus-lg.svg"  class="format-white"> Nuovo Evento
     </button>
@@ -146,33 +147,48 @@
       <div class="modal-dialog">
         <div class="modal-content">  <!-- contenuto della finestra globale-->
           <div class="modal-header"> <!-- HEADER-->
+            Crea un nuovo evento
             <button class="btn-close" data-bs-dismiss="modal"></button> <!--crocetta per chiudere-->
           </div>
           <div class="modal-body">
             <form action="creaEvento.php" method="post" name="creazioneEvento">
-              nome evento:
-              <input type="text" name="nomeEvento" size="40" maxlength="40" required>
-              <br>
-              data evento:
-              <input type="date" name="dataEvento" required>
-              <br>
-              categoria:
-              <select name="categoria" required>
-                <option></option>
-                <option value="Concerti"> Concerti</option>
-                <option value="MostreEMusei"> Mostre e musei</option>
-                <option value="Teatro"> Teatro</option>
-                <option value="Sport"> Sport</option>
-              </select>
-              <br>
-              <br>    
-              info evento:
-              <textarea name="infoEvento" size="100" maxlength="100"></textarea>
-              <br>   
-              <br>
-              organizzatore:
-              <input type="text" name="organizzatore" id="orID" size="40" maxlength="40" readonly>
-              <br>
+              <!--nome evento-->
+              <div class="form-group mb-3">
+                <img src = "./icons/chevron-down.svg" alt="BOH">
+                <label for="nomeEvento">Nome Evento</label>
+                <input type="text" id="nomeEvento" name="nomeEvento" size="40" maxlength="40" class="form-control myinputs" 
+                    placeholder="Es: evento" autofocus required>
+              </div>
+              <!--data evento-->
+              <div class="form-group mb-3">
+                <img src = "./icons/chevron-down.svg" alt="BOH">
+                <label for="dataEvento"> Data Evento </label>
+                <input type="date" name="dataEvento" id="dataEvento" class="form-control myinputs" placeholder="01/01/2001" required>
+              </div>
+              <!--categoria -->
+              <div class="form-group mb-3">
+                <img src = "./icons/chevron-down.svg" alt="BOH">
+                <label for="categoria">Categoria</label>
+                <select name="categoria" id="categoria" class="form-select myinputs" required>
+                  <option></option>
+                  <option value="Concerti"> Concerti</option>
+                  <option value="MostreEMusei"> Mostre e Musei</option>
+                  <option value="Teatro"> Teatro</option>
+                  <option value="Sport"> Sport</option>
+                </select>
+              </div>
+              <!--info evento -->
+              <div class="form-group mb-3">
+                <img src = "./icons/chevron-down.svg" alt="BOH">
+                <label for="infoEvento">Info Aggiuntive</label>
+                <textarea name="infoEvento" id="infoEvento" class="form-control myinputs" size="100" maxlength="100" placeholder="..."></textarea>
+              </div>  
+              <!--organizzatore pre-compilato-->
+              <div class="form-group mb-3">
+                <img src = "./icons/chevron-down.svg" alt="BOH">
+                <label for="orID">organizzatore</label>
+                <input type="text" name="organizzatore" id="orID" class="form-control myinputs" size="40" maxlength="40" readonly>
+              </div> 
               <button type="submit" class="btn btn-outline-success">Crea evento </button>
               <button type="reset" class="btn btn-outline-warning">Reset </button>
             </form>
@@ -193,8 +209,5 @@
       
   </div>
     
-  <div id="roba a caso" onclick="stampaStorage()">
-    clicca
-  </div>
 </body>
 </html>
