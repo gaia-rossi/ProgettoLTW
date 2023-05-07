@@ -51,13 +51,15 @@
                 if (isset($_POST["org"])) {
                     $org = 1;
                 }
+                $header = "../pictures/outrageous_orange.jpg";
+                $pfpic = "../avatars/user.png";
 
                 // QUERY PER INSERIRE LA NUOVA TUPLA NEL DATABASE
                 $query2 = "INSERT INTO utente
-                    (nome, email, regione, pswrd, citta, organizer)
-                    VALUES ($1,$2,$3,$4,$5,$6)";
+                    (nome, email, regione, pswrd, citta, organizer, head, pfpic)
+                    VALUES ($1,$2,$3,$4,$5,$6,$7,$8)";
                 $result = pg_query_params($dbconn, $query2, array(
-                    $nome, $email, $regione, $pswrd, $citta, $org
+                    $nome, $email, $regione, $pswrd, $citta, $org, $header, $pfpic
                 ));
 
                 // TUPLA INSERITA

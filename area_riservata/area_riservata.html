@@ -1,91 +1,57 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+    <title>Area Riservata</title>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!-- IMPORT CSS/BOOTSTRAP -->
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css"/>
     <link rel="stylesheet" href="../css/res_area.css"/>
-
-    <title>Area Riservata</title>
+    <script defer src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="main-body">
-            <div class="row gutters-sm">
-                <div class="col-md-4 mb-3">
-                    <div class="card mt-3">
-                        <div class="card-body">
-                            <div class="d-flex flex-column align-items-center text-center">
-                                <img src="../avatars/empathy.png" alt="User" class="rounded-circle" width="150">
-                                <div class="mt-3">
-                                    <h4>Nome Utente</h4>
-                                    <p class="text-secondary mb-1">Organizzatore</p>
-                                    <p class="text-muted font-size-sm">Regione, Città</p>
-                                </div>
-                            </div>
-                        </div>
+
+    <!-- SCRIPT JQUERY E AJAX -->
+    <script src="../jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#zonaDinamicaData").load("./data_area.php",
+                function(responseTxt, statusTxt, xhr){
+                    if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
+            });
+            $("#zonaDinamicaUser").load("./user_area.php",
+                function(responseTxt, statusTxt, xhr){
+                    if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
+            });
+        });
+    </script>
+
+    <div class="container d-flex justify-content-center align-items-center mt-2">
+        <h1>AREA PERSONALE</h1>
+    </div>
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="row gutters-md">
+
+            <div class="col-md-4">
+
+                <div class="card mt-2 mb-2 justify-content-center align-items-center">
+
+                    <div id="zonaDinamicaUser">
+                        ...
                     </div>
+
                 </div>
-                <div class="col-md-8">
-                    <div class="card mb-3 mt-3">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Full Name</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    Aaaaa
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Email</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    aa@gmail.com
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Password</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    *****
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Regione</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    Lazio
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Città</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    Roma
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <a class="btn btn-info" target="__blank" href="#">Edit</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
+
+            <div class="col-md-8">
+
+                <div id="zonaDinamicaData">
+                    ...
+                </div>
+
+            </div>
+
         </div>
     </div>
 </body>
