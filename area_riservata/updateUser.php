@@ -44,33 +44,12 @@
                 $new_name = $_POST["insert_name"];
                 $new_region = $_POST["insert_region"];
                 $new_city = $_POST["insert_city"];
-                $new_hash = "";
-
-                if(password_verify($pswrd, $hash)) {
-
-                    // HO MODIFICATO LA PASSWORD E HO INSERITO LA GIUSTA PASSWORD VECCHIA
-                    $new_pswrd = $_POST["new_pswrd"];
-
-                    if ($new_pswrd == "*****") {
-                        $new_hash = $hash;
-                    } else {
-                        $new_hash = password_hash($new_pswrd, PASSWORD_BCRYPT);
-                        // Inizializzo la sessione
-                    $_SESSION['password'] = $new_pswrd;
-                    }
-
-                } else {
-
-                    // HO MODIFICATO LA PASSWORD, MA LA VECCHIA NON CORRISPONDE
-                    die("La vecchia password non corrisponde.");
-
-                }
 
                 // QUERY PER MODIFICARE LA TUPLA NEL DATABASE
-                $query2 = "UPDATE utente SET (nome, regione, pswrd, citta) = ($1,$2,$3,$4)
-                            WHERE email=$5";
+                $query2 = "UPDATE utente SET (nome, regione, citta) = ($1,$2,$3)
+                            WHERE email=$4";
                 $result = pg_query_params($dbconn, $query2, array(
-                    $new_name, $new_region, $new_hash, $new_city, $email
+                    $new_name, $new_region, $new_city, $email
                 ));
 
                 // TUPLA MODIFICATA

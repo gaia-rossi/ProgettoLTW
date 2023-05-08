@@ -1,6 +1,7 @@
 <?php
     // Start della sessione
     session_start();
+    $current_pass = $_SESSION["password"];
 ?>
 <?php 
     // Connessione al database
@@ -23,7 +24,7 @@
         function caricaDocumento(e) {
             var httpRequest = new XMLHttpRequest();
             httpRequest.onreadystatechange = gestisciResponse;
-            httpRequest.open("GET", e.target.innerHTML + ".htm", true);
+            httpRequest.open("GET", e.target.innerHTML + ".php", true);
             httpRequest.send();
         }
 
@@ -33,14 +34,6 @@
                 = e.target.responseText;
             }
         }
-    </script>
-    <!-- UTILIZZO JQUERY -->
-    <script src="../jquery-3.6.0.js"></script>
-    <script>
-        $("#imgpass").click('#pswd-new',function(){
-            $('#pswd-new').attr('readonly', false);
-            $('#pswd-new').val("");
-        });
     </script>
 
 </head>
@@ -61,9 +54,10 @@
                     $nome=$line["nome"];
                     $regione=$line["regione"];
                     $citta=$line["citta"];
-                    $pswrd=$line["pswrd"];
+
                     $head=$line["head"];
                     $pfpic=$line["pfpic"];
+
                     $org=$line["organizer"];
                     $ruolo = "Utente Semplice";
                     if ($org == 1) $ruolo = "Organizzatore";
@@ -73,23 +67,29 @@
         
         ?>
 
-        <div class="upheader align-items-center">
+        <div class="mt-2 upheader align-items-center">
             <img src="<?php echo"$head" ?>" class="img-fluid justify-content-center">
         </div>
         <div class="profile text-center">
             <img src="<?php echo"$pfpic" ?>" class="rounded-circle" width="150">
         </div>
 
-        <div class="mt-3 text-center">
+        <div class="mt-2 text-center">
             <h4> <?php echo"$nome" ?> </h3>
             <p class="text-secondary mb-1"> <?php echo"$ruolo" ?> </p>
         </div>
 
         <!-- Button trigger modal -->
         <div class="text-center">
-            <button type="button" class="btn btn-dark btn-lg mt-3 mb-3" data-bs-toggle="modal" data-bs-target="#updateModal">
+            <button type="button" class="btn btn-dark btn-lg mt-2 mb-2" data-bs-toggle="modal" data-bs-target="#updateModal">
                 Modifica Profilo
             </button>
+        </div>
+
+        <!-- NUOVA PASSWORD -->
+        <div class="text-center mb-2" name="div_newpass">
+            <button class="btn btn-outline-dark" id="modifica">Modifica Password</button>
+            <div id="passDinamica" class="form-group mb-1"></div>
         </div>
         
         <!-- Modal -->
@@ -111,7 +111,7 @@
                             <div class="form-group mb-1" name="div_mail">
                                 <label for="mail-input">Indirizzo Email</label>
                                 <input name="insert_email" type="email" class="form-control" id="mail-input"
-                                    value="<?php echo"$mail" ?>" readonly>
+                                    value="<?php echo"$mail" ?>" readonly disabled>
                             </div>
 
                             <!-- INSERIMENTO REGIONE E CITTÀ -->
@@ -127,22 +127,16 @@
 
                             <!-- VECCHIA PASSWORD -->
                             <div class="form-group mb-1" name="div_pass">
-                                <a href="#" id="imgpass"><img src = "../icons/pencil-fill.svg" alt="Password" style="width:2%;"/></a>
-                                <label for="pswd-input">Conferma Password</label>
+                                <label for="pswd-input">Password</label>
                                 <input name="insert_pswrd" type="password" class="form-control" id="pswd-input" 
-                                    placeholder="*****" required>
-                            </div>
-                            <!-- NUOVA PASSWORD -->
-                            <div class="form-group mb-1" name="div_newpass">
-                                <div id="passDinamica" class="form-group mb-1"></div>
+                                    value="<?php echo"$current_pass" ?>" required readonly disabled>
                             </div>
 
-                            <button type="submit" class="btn btn-outline-success">Salva Modifiche</button>
+                            <button type="submit" class="btn btn-success">Salva Modifiche</button>
 
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-outline-warning" id="modifica">Modifica Password</button>
                         <button id="chiudi" type="button" class="btn btn-danger" data-bs-dismiss="modal">Chiudi</button>
                     </div>
                 </div>
@@ -157,56 +151,3 @@
 
 </body>
 </html>
-
-
-
-<!--
-    echo"       <button class='btn btn-dark' data-bs-target='#myModal' data-bs-toggle='modal' id='btn'>";
-                echo"           Modifica Profilo";
-                echo"       </button>";
-            
-                echo"       <div id='myModal' class='modal fade' tabindex='-1'>";
-                echo"           <div class='modal-dialog'>";
-                echo"               <div class='modal-content'>";
-                echo"                   <div class='modal-header'>";
-                echo"                       <button class='btn-close float-end' data-bs-dismiss='modal'></button>";
-                echo"                   </div>";
-                echo"                   <div class='modal-body'>";
-                echo"                       <form action='edit_profile.php' method='post' name='ModificaProfilo'>";
-
-                echo"                           <div class='form-group mb-1' name='div_name'>";
-                echo"                               <label for='name-input'>Nome Utente</label>";
-                echo"                               <input type='text' name='insert_name' class='form-control' placeholder=$nome id='name-input' autofocus>";
-                echo"                           </div>";
-
-                echo"                           <div class='form-group mb-2' name='div_mail'>";
-                echo"                               <label for='mail-input'>Indirizzo Email</label>";
-                echo"                               <input name='insert_email' type='email' class='form-control' id='mail-input' placeholder=$mail>";
-                echo"                           </div>";
-
-                echo"                           <div class='form-group mb-2' name='div_password'>";
-                echo"                               <label for='pswd-input'>Password</label>";
-                echo"                               <input name='insert_pswrd' type='password' class='form-control' id='pswd-input' placeholder='*****' readonly>";
-                echo"                           </div>";
-
-                echo"                           <div class='form-group mb-2' name='div_region'>";
-                echo"                               <label for='region-input'>Regione</label>";
-                echo"                               <input type='text' name='insert_region' class='form-control' placeholder=$regione id='region-input'>";
-                echo"                           </div>";
-                                        
-                echo"                           <div class='form-group mb-2' name='div_region'>";
-                echo"                               <label for='city-input'>Città</label>";
-                echo"                               <input type='text' name='insert_city' class='form-control' placeholder=$citta id='city-input'>";
-                echo"                           </div>";
-
-                echo"                           <button type='submit' class='btn btn-outline-success'>Salva Modifiche</button>";
-                                        
-                echo"                       </form>";
-                echo"                   </div>";
-                echo"                   <div class='modal-footer'>";
-                echo"                       <button class='btn btn-dark' data-bs-dismiss='modal'>Chiudi</button>";
-                echo"                   </div>";
-                echo"               </div>";
-                echo"            </div>";
-                echo"       </div>";
-    -->

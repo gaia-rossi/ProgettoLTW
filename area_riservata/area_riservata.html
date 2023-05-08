@@ -23,6 +23,10 @@
                 function(responseTxt, statusTxt, xhr){
                     if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
             });
+            $("#zonaDinamicaHeader").load("./header_area.php",
+                function(responseTxt, statusTxt, xhr){
+                    if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
+            });
         });
     </script>
 
@@ -54,5 +58,6 @@
 
         </div>
     </div>
+    
 </body>
 </html>

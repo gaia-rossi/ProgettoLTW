@@ -58,16 +58,6 @@
 
                 echo"   <div class='row'>";
                 echo"       <div class='col-sm-3'>";
-                echo"           <h5>Password</h5>";
-                echo"       </div>";
-                echo"       <div class='col-sm-9'>";
-                echo"           *****";
-                echo"       </div>";
-                echo"   </div>";
-                echo"   <hr>";
-
-                echo"   <div class='row'>";
-                echo"       <div class='col-sm-3'>";
                 echo"           <h5>Regione</h5>";
                 echo"       </div>";
                 echo"       <div class='col-sm-9'>";
