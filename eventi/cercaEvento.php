@@ -22,14 +22,14 @@
 
 </head>
 <body>
-    <!--<div class="card-group">-->
-    <!--<div class="row row-cols-1 row-cols-md-3 g-4">-->
     <div class="container-fluid py-2 " style="overflow-y:scroll; overflow-y:auto;">
         <div class="d-flex flex-row flex-nowrap">
     <?php
         if($dbconn){
-            $query = "SELECT * from evento where $1";
-            $result = pg_query_params($dbconn, $query, array("true"));
+            $r = $_GET["bar"];
+            $ricerca = '%'. $r . '%';
+            $query = "SELECT * from evento where nome like $1";
+            $result = pg_query_params($dbconn, $query, array($ricerca));
             $line=pg_fetch_array($result, null, PGSQL_ASSOC);
             while($line != false){
                 $nome=$line["nome"];

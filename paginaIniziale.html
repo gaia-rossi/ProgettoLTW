@@ -9,77 +9,22 @@
     <script src="jquery-3.6.0.js"></script>
     <link rel="stylesheet" href="./pagin.css">
 
-    <!--utilizzo localStorage-->
+    <!-- IMPORT FILE JAVASCRIPT -->
+    <script src="./paginaInizialeFunzioni.js" type="application/javascript"></script>
+
     <script>
-      function inizializzaStorage(){
-        var x = JSON.parse(localStorage.utente);
-        var e = x["email"];
-        document.getElementById("orID").value = email;
-        return true;
+
+      function ricerca(){
+        if(document.searchBar.bar.value== ""){
+          alert("non hai inserito nessun evento da cercare!");
+          return false;
+        }   
       }
 
-      function stampaStorage(){    
-        var j = JSON.parse(localStorage.utente);
-        var res = new String("<h3> Stato attuale di local storage </h3>");
-        res += JSON.stringify(j) + "<br />";
-        document.getElementById("roba a caso").innerHTML = res;
-        return true;
-      }
     </script>
 </head>
-<body onload="inizializzaStorage()">
+<body onload="inizializza()">
 
-  
-  <script>
-    var x = JSON.parse(localStorage.utente);
-    var email = x["email"]; 
-    
-  </script>
-
-  <!-- SCRIPT JQUERY E AJAX -->
-  <script>
-    $(document).ready(function(){
-        $("#zonaiscrizioni").load("./eventi/listaiscrittiEventi.php",
-            function(responseTxt, statusTxt, xhr){
-                if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
-        });
-        $("#zonaeventi").load("./eventi/listaEventi.php",
-            function(responseTxt, statusTxt, xhr){
-                if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
-        });
-        $("#zonadibenvenuto").load("inizializzazioneSession.php",
-            function(responseTxt, statusTxt, xhr){
-                if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
-        });
-        $(".dropdown-item").click(function(){
-          var x = this.id;
-          $.ajax({
-            type: "POST",
-            url: './eventi/queryiscrittiEventi.php',
-            data: {'categoria' : x},
-            success: function(result){
-              $("#zonaiscrizioni").html(result);
-            },
-            error: function(){
-              alert("Chiamata fallita!!!");
-            }
-          });
-
-          $.ajax({
-            type: "POST",
-            url: './eventi/querylistaEventi.php',
-            data: {'categoria' : x},
-            success: function(result){
-              $("#zonaeventi").html(result);
-            },
-            error: function(){
-              alert("Chiamata fallita!!!");
-            }
-          });
-        });
-        
-    });
-  </script>
   <!--NAVBAR-->
   <nav class="navbar navbar-expand-lg bg-light navbar-dark bg-dark"> 
     <div class="container-fluid">
@@ -109,9 +54,9 @@
           
         </ul>
           <!--fine menu a discesa-->
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit"><img src="./icons/search.svg"  class="format-white"></button>
+          <form action="./eventi/cercaEvento.php" method="GET" class="d-flex" role="search" name="searchBar" onsubmit="verifica();">
+            <input class="form-control me-2" name="bar" id="bar" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" id="barButton" type="submit"><img src="./icons/search.svg"  class="format-white"></button>
           </form>
         
         <ul class="navbar-nav justify-content-end">
@@ -134,7 +79,7 @@
   <!--navbar-->
   
 
-  <div class="container">
+  <div class="container" id="contenuto">
     <div class="container" id="zonadibenvenuto">
       ...
     </div>
