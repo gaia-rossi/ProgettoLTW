@@ -7,7 +7,7 @@
     
     <!-- IMPORT CSS/BOOTSTRAP -->
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css"/>
-    <link rel="stylesheet" href="./login.css"/>
+    <link rel="stylesheet" href="../css/login.css"/>
 
     <!-- IMPORT FILE JAVASCRIPT PER VALIDAZIONE -->
     <script src="./valid-login.js" type="application/javascript"></script>
@@ -24,14 +24,14 @@
             <!-- TITOLO ED ICONA -->
             <div class="form-group mb-xxl-5">
                 <a href="../index.html">
-                    <img src = "stadium.png" alt="Icona" class="format-icon"/>
+                    <img src = "../pictures/stadium.png" alt="Icona" class="format-icon"/>
                 </a>
                 <h1>WEvent</h1>
             </div>
 
             <!-- INSERIMENTO EMAIL -->
             <div class="form-group mb-1 myleft" name="div_mail">
-                <img src = "person-bounding-box.svg" alt="Email" class="format-white"/>
+                <img src = "../icons/person-bounding-box.svg" alt="Email" class="format-white"/>
                 <label for="mail-input">Indirizzo Email</label>
                 <input name="insert_email" type="email" class="form-control myinputs" id="mail-input"
                     placeholder="Es: abc@def.xyz" autofocus>
@@ -39,15 +39,15 @@
 
             <!-- INSERIMENTO PASSWORD -->
             <div class="form-group mb-3 myleft">
-                <img src = "check2-all.svg" alt="Password" class="format-white"/>
+                <img src = "../icons/check2-all.svg" alt="Password" class="format-white"/>
                 <label for="pswd-input">Password</label>
                 <input name="insert_pswrd" type="password" class="form-control myinputs" id="pswd-input" 
                     placeholder="*****">
             </div>
 
             <!-- CHECKBOX RICORDAMI -->
-            <div class="form-check mb-3 myleft">
-                <input type="checkbox" class="form-check-input" id="rmbr">
+            <div class="form-check form-switch mb-3 myleft">
+                <input type="checkbox" class="form-check-input" role="switch" id="rmbr" name="rmb" checked>
                 <label class="form-check-label" for="rmbr">Ricordami</label>
             </div>
 

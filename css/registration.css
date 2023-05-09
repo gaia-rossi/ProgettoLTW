@@ -10,7 +10,7 @@ body {
   align-items: center;
   text-align: left;
   width: 100%;
-  background: url('stadio_luci.jpg') no-repeat;
+  background: url('../pictures/stadio_luci.jpg') no-repeat;
   background-position: center;
   background-size: cover;
   color: white;
@@ -37,6 +37,14 @@ body {
 
 .myleft {
   text-align: left;
+  justify-content: left;
+  align-items: center;
+}
+
+.myright {
+  text-align: right;
+  align-items: center;
+  justify-content: right;
 }
 
 .myinputs {
@@ -71,7 +79,8 @@ body {
 }
 
 .col2 {
-    margin-left: 2px;
+  align-items: end;
+  justify-content: right;
 }
 
 .format-white {
