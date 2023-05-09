@@ -22,11 +22,15 @@
 
 </head>
 <body>
+    <!-- inclusione navbar-->
+    <?php include "../navbar.html" ;?>
+
+
     <div class="container-fluid py-2 " style="overflow-y:scroll; overflow-y:auto;">
         <div class="d-flex flex-row flex-nowrap">
     <?php
         if($dbconn){
-            $r = $_GET["bar"];
+            $r = $_POST["bar"];
             $ricerca = '%'. $r . '%';
             $query = "SELECT * from evento where nome like $1";
             $result = pg_query_params($dbconn, $query, array($ricerca));

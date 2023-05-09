@@ -12,16 +12,6 @@
     <!-- IMPORT FILE JAVASCRIPT -->
     <script src="./paginaInizialeFunzioni.js" type="application/javascript"></script>
 
-    <script>
-
-      function ricerca(){
-        if(document.searchBar.bar.value== ""){
-          alert("non hai inserito nessun evento da cercare!");
-          return false;
-        }   
-      }
-
-    </script>
 </head>
 <body onload="inizializza()">
 
@@ -54,7 +44,7 @@
           
         </ul>
           <!--fine menu a discesa-->
-          <form action="./eventi/cercaEvento.php" method="GET" class="d-flex" role="search" name="searchBar" onsubmit="verifica();">
+          <form action="./eventi/cercaEvento.php" method="POST" class="d-flex" role="search" name="searchBar" onsubmit="return verifica();">
             <input class="form-control me-2" name="bar" id="bar" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" id="barButton" type="submit"><img src="./icons/search.svg"  class="format-white"></button>
           </form>

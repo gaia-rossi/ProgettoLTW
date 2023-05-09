@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pagina Iniziale</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css" />
+    <script defer src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="./pagin.css">
+
+    <!-- IMPORT FILE JAVASCRIPT -->
+    <script src="./paginaInizialeFunzioni.js" type="application/javascript"></script>
+
+</head>
+<body onload="inizializza()">
+
+  <!--NAVBAR-->
+  <nav class="navbar navbar-expand-lg bg-light navbar-dark bg-dark"> 
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">WEvent</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <!-- menu a discesa per le categorie -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Categoria
+            </a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item" id="Concerti">Concerti</li>
+              <li class="dropdown-item" id="MostreEMusei">Mostre e Musei</li>
+              <li class="dropdown-item" id="Sport">Sport</li>
+              <li class="dropdown-item" id="Teatro">Teatro</li>
+              <!--<li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">non lo so, se serve</a></li>-->
+            </ul>
+          </li>
+          
+        </ul>
+          <!--fine menu a discesa-->
+          <form action="./eventi/cercaEvento.php" method="POST" class="d-flex" role="search" name="searchBar" onsubmit="return verifica();">
+            <input class="form-control me-2" name="bar" id="bar" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" id="barButton" type="submit"><img src="./icons/search.svg"  class="format-white"></button>
+          </form>
+        
+        <ul class="navbar-nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">
+              <img src="./icons/person-fill.svg"  class="format-white"> Area Riservata
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href="./index.html">
+              <img src="./icons/escape.svg" class="format-white"> Logout
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+    
+</body>
+</html>

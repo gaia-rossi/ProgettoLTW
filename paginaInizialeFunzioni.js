@@ -56,3 +56,9 @@ function stampaStorage(){
     return true;
 }
 
+function verifica(){
+    if(document.searchBar.bar.value== ""){
+      alert("non hai inserito nessun evento da cercare!");
+      return false;
+    }   
+  }
