@@ -27,7 +27,6 @@
             if($line != false){
                 $categoria = $line["categoria"];
                 echo "<img src='./icons/$categoria.jpg' class='card-img' alt='$categoria'>";
-                echo "<script> alert('inserita foto') <script>";
             } 
             pg_close($dbconn);
         }

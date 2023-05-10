@@ -44,6 +44,22 @@ function inizializza(){
             }
           });
         });
+
+        $.ajax({
+          type: "POST",
+          url: './organizzatore.php',
+          dataType: 'json',
+          success: function(result){
+            var j = result['organizzatore'];
+            alert(j);
+            if(j == 0){
+              $("#aggiungi").hide();
+            }       
+          },
+          error: function(){
+            alert("Chiamata fallita per nascondere evento!!!");
+          }
+        });
     });
     return true;
 }
