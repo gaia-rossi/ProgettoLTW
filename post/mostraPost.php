@@ -34,6 +34,9 @@
                 echo "  <div class='card-body'>";
                 echo $contenuto;
                 echo "  </div>"; 
+                echo "  <div class='card-footer text-muted'>";
+                echo "  2 days ago";
+                echo "  </div>";
                 echo "</div>";
                 $line=pg_fetch_array($result, null, PGSQL_ASSOC); 
             } 
