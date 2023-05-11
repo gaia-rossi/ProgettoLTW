@@ -51,7 +51,6 @@ function inizializza(){
           dataType: 'json',
           success: function(result){
             var j = result['organizzatore'];
-            alert(j);
             if(j == 0){
               $("#aggiungi").hide();
             }       

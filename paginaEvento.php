@@ -27,12 +27,14 @@
 <body>
 
     <?php
-        if(!isset($_SESSION["iscrizioneevento"])){
+        if(isset($_GET["evento"])){
             $_SESSION["iscrizioneevento"] = $_GET["evento"];
         }
-        if(!isset($_SESSION["iscrizionedata"])){
+        if(isset($_GET["data"])){
             $_SESSION["iscrizionedata"] = $_GET["data"];
         }
+        
+        
     ?>
     
     <script>
@@ -47,6 +49,12 @@
 
             //richiesta per caricare l'immagine correttamente
             $("#fotoCategoria").load("./eventi/sfondoEvento.php",
+                function(responseTxt, statusTxt, xhr){
+                        if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
+            });
+
+            //carico tutti i post
+            $("#zonapost").load("./post/mostraPost.php",
                 function(responseTxt, statusTxt, xhr){
                         if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
             });
@@ -139,16 +147,8 @@
     
     <div class="container">
         <h3>Tutti i post </h3>
-        <div class="card card-b">
-                <div class="card-header">
-                Partecipa alla conversazione!
-                </div>
-                <div class="card-body">
-
-                </div>
-                <div class="card-footer text-muted">
-                    2 days ago
-                </div>
+        <div class="container" id="zonapost">
+            
         </div>
     </div>
     
