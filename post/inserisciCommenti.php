@@ -1,4 +1,3 @@
-//commenti TODOO
 <?php
     session_start();
 
@@ -11,14 +10,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina di iscrizione</title>
+    <title>Inserisci commenti</title>
 </head>
 <body>
     <?php
         if($dbconn){
             //devi ottenere il numero del post E il contenuto in qualche modo
-            //$npost = $_GET["numerop"];
-            $npost = 6;
+            $npost = $_GET["numerop"];
             $contenuto =$_POST["contenuto"];
 
             $utente = $_SESSION["email"];
