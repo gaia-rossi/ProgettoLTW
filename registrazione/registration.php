@@ -44,20 +44,23 @@
 
                 // NON HO TROVATO L'INDIRIZZO EMAIL NEL DATABASE, L'UTENTE SI REGISTRA
                 $nome = $_POST["insert_name"];
-                $pswrd = password_hash($_POST["insert_pswrd"], PASSWORD_BCRYPT);
+                $pswrd = $_POST["insert_pswrd"];
+                $hash = password_hash($pswrd, PASSWORD_BCRYPT);
                 $regione = $_POST["insert_region"];
                 $citta = $_POST["insert_city"];
                 $org = 0;
                 if (isset($_POST["org"])) {
                     $org = 1;
                 }
+                $header = "../pictures/outrageous_orange.jpg";
+                $pfpic = "../avatars/user.png";
 
                 // QUERY PER INSERIRE LA NUOVA TUPLA NEL DATABASE
                 $query2 = "INSERT INTO utente
-                    (nome, email, regione, pswrd, citta, organizer)
-                    VALUES ($1,$2,$3,$4,$5,$6)";
+                    (nome, email, regione, pswrd, citta, organizer, head, pfpic)
+                    VALUES ($1,$2,$3,$4,$5,$6,$7,$8)";
                 $result = pg_query_params($dbconn, $query2, array(
-                    $nome, $email, $regione, $pswrd, $citta, $org
+                    $nome, $email, $regione, $hash, $citta, $org, $header, $pfpic
                 ));
 
                 // TUPLA INSERITA
