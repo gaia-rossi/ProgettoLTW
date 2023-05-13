@@ -1,5 +1,5 @@
 <?php
-    //inizializzo la sessione
+    // Inizializzo la sessione
     session_unset();
     session_start();
 ?>
@@ -47,19 +47,29 @@
 
                     // LA PASSWORD INSERITA CORRISPONDE ALL'HASH SALVATO
                     $name = $line["nome"];
-                    
-                    //inizializzo la sessione -gaia
-                    $_SESSION['email'] = $email;
+
+                    // Inizializzo la sessione
                     $_SESSION['nome'] = $name;
-                    print_r($_SESSION);
-                    
+                    $_SESSION['password'] = $pswrd;
+                    $_SESSION['email'] = $email;
+
+                    if (isset($_POST['rmb'])) {
+                        setcookie("currentuser", $email . "," . $pswrd);
+                    }
+
                     header("Location: ../paginaIniziale.html?name=$name");
                     exit();
+    
+                    //inizializzo la sessione -gaia
+                    //$_SESSION['email'] = $email;
+                    //$_SESSION['nome'] = $name;
+                    //print_r($_SESSION);
+                    
+                    //header("Location: ../paginaIniziale.html?name=$name");
+                    //exit();
 
-                    echo "<h1>Il login è andato a buon fine!</h1><br>
-                        <a href=../paginaIniziale.html?name=$name> Clicca qui per iniziare ad utilizzare il sito </a>";
-                    
-                    
+                    //echo "<h1>Il login è andato a buon fine!</h1><br>
+                        //<a href=../paginaIniziale.html?name=$name> Clicca qui per iniziare ad utilizzare il sito </a>";
 
                 } else {
 
