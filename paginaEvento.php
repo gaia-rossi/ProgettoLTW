@@ -120,14 +120,11 @@
                 </div>
                 <div class="card-body">
                     <form action="./post/pubblicaPost.php" method="post" name="pubblicaPost">
-                        <textarea name="contenuto" id="contenuto" class="form-control" size="590" maxlength="500" placeholder="..." required></textarea>
+                        <textarea name="contenuto" id="contenuto" class="form-control" size="500" maxlength="500" placeholder="..." required></textarea>
                         <button type="submit" class="btn btn-outline-success">Pubblica</button>
                         <button type="reset" class="btn btn-outline-warning">Reset </button>
                     </form>
                 </div>
-                <!--<div class="card-footer text-muted">
-                    2 days ago
-                </div>-->
             </div>
 
             <div class="container">

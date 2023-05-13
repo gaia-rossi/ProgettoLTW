@@ -17,8 +17,9 @@
     <?php
         if($dbconn){
             //devi ottenere il numero del post E il contenuto in qualche modo
-            $npost = ;
-            $contenuto =;
+            //$npost = $_GET["numerop"];
+            $npost = 6;
+            $contenuto =$_POST["contenuto"];
 
             $utente = $_SESSION["email"];
 
