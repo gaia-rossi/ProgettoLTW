@@ -3,7 +3,7 @@
     or die('Could not connect: ' . pg_last_error());
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,7 +34,7 @@
                 $nome=$line["nome"];
                 $data=$line["datae"];
                 $categoria = $line["categoria"];
-                echo"<div class='card card-b' style='width: 18rem;'>";
+                echo"<div class='card card-b' style='width: 18rem; background-color: #214878; color: white;'>";
                 echo"  <img class='card-img-top' src='../icons/$categoria.jpg' alt='Card image cap'>";
                 echo"  <div class='card-body'>";
                 echo"       <h5 class='card-title'>$nome</h5>";
