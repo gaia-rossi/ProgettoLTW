@@ -44,7 +44,8 @@
 
                 // NON HO TROVATO L'INDIRIZZO EMAIL NEL DATABASE, L'UTENTE SI REGISTRA
                 $nome = $_POST["insert_name"];
-                $pswrd = password_hash($_POST["insert_pswrd"], PASSWORD_BCRYPT);
+                $pswrd = $_POST["insert_pswrd"];
+                $hash = password_hash($pswrd, PASSWORD_BCRYPT);
                 $regione = $_POST["insert_region"];
                 $citta = $_POST["insert_city"];
                 $org = 0;
@@ -59,7 +60,7 @@
                     (nome, email, regione, pswrd, citta, organizer, head, pfpic)
                     VALUES ($1,$2,$3,$4,$5,$6,$7,$8)";
                 $result = pg_query_params($dbconn, $query2, array(
-                    $nome, $email, $regione, $pswrd, $citta, $org, $header, $pfpic
+                    $nome, $email, $regione, $hash, $citta, $org, $header, $pfpic
                 ));
 
                 // TUPLA INSERITA

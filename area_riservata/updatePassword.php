@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aggiornamento Dati</title>
+    <title>Aggiornamento Password</title>
 </head>
 <body>
     
@@ -37,27 +37,19 @@
             
             if ($line = pg_fetch_array($result, null)) {
 
-                // Devo controllare che la password sia la stessa
-                $pswrd = $_POST["insert_pswrd"];
-                $hash = $line["pswrd"];
-
-                $new_name = $_POST["insert_name"];
-                $new_region = $_POST["insert_region"];
-                $new_city = $_POST["insert_city"];
+                $new_pass = $_POST["new_pswrd"];
+                $new_hash = password_hash($new_pass, PASSWORD_BCRYPT);
 
                 // QUERY PER MODIFICARE LA TUPLA NEL DATABASE
-                $query2 = "UPDATE utente SET (nome, regione, citta) = ($1,$2,$3)
-                            WHERE email=$4";
+                $query2 = "UPDATE utente SET pswrd = $1
+                            WHERE email=$2";
                 $result = pg_query_params($dbconn, $query2, array(
-                    $new_name, $new_region, $new_city, $email
+                    $new_hash, $email
                 ));
 
                 // TUPLA MODIFICATA
                 if ($result) {
-
-                    // Inizializzo la sessione
-                    $_SESSION['nome'] = $new_name;
-
+                    $_SESSION['password'] = $new_pass;
                     header("Location: ./area_riservata.html");
                     exit();
                 } else {

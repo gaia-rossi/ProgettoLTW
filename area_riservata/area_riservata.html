@@ -23,14 +23,13 @@
                 function(responseTxt, statusTxt, xhr){
                     if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
             });
-            $("#zonaDinamicaHeader").load("./header_area.php",
-                function(responseTxt, statusTxt, xhr){
-                    if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
-            });
         });
     </script>
 
     <div class="container d-flex justify-content-center align-items-center mt-2">
+        <a href="../paginaIniziale.html">
+            <img src = "../icons/caret-left-fill.svg" alt="Indietro" style="width: 30px;"/>
+        </a>
         <h1>AREA PERSONALE</h1>
     </div>
     <div class="container d-flex justify-content-center align-items-center">

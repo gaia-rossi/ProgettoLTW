@@ -16,10 +16,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Area Riservata</title>
 
-    <!-- UTILIZZO AJAX -->
+    <!-- UTILIZZO JQUERY -->
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#zonaDinamicaHeader").load("./header_area.php",
+                function(responseTxt, statusTxt, xhr){
+                    if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
+            });
+            $("#zonaDinamicaPfPic").load("./pfpic_area.php",
+                function(responseTxt, statusTxt, xhr){
+                    if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
+            });
+        });
+        $("#modifica").on({
+            click: function(){
+                $("#passDinamica").fadeToggle();
+            }
+        });
+    </script>
+
+    <!-- UTILIZZO AJAX 
     <script>
         document.getElementById("modifica").onclick = caricaDocumento;
-        document.getElementById("chiudi").onclick = caricaDocumento;
 
         function caricaDocumento(e) {
             var httpRequest = new XMLHttpRequest();
@@ -35,6 +54,7 @@
             }
         }
     </script>
+    -->
 
 </head>
 <body>
@@ -68,10 +88,65 @@
         ?>
 
         <div class="mt-2 upheader align-items-center">
-            <img src="<?php echo"$head" ?>" class="img-fluid justify-content-center">
+            <a data-bs-target="#headerModal" data-bs-toggle="modal" href="#headerModal">
+                <img src="<?php echo"$head" ?>" class="img-fluid justify-content-center">
+            </a>
         </div>
+
+        <!-- HEADER MODAL -->
+        <div class="modal fade" id="headerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Aggiornamento Header</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form action="updateHeader.php" method="post" name="modificaHeader">
+                            <!-- Carico dinamicamente gli header salvati. -->
+                            <div class="container d-flex text-center">    
+                                <div id="zonaDinamicaHeader">
+                                    ...
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success">Salva Header</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="chiudi" type="button" class="btn btn-danger" data-bs-dismiss="modal">Chiudi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="profile text-center">
-            <img src="<?php echo"$pfpic" ?>" class="rounded-circle" width="150">
+            <a data-bs-target="#pfpicModal" data-bs-toggle="modal" href="#pfpicModal">
+                <img src="<?php echo"$pfpic" ?>" class="rounded-circle" width="150">
+            </a>    
+        </div>
+
+        <!-- PROFILE PIC MODAL -->
+        <div class="modal fade" id="pfpicModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Aggiornamento Immagine del Profilo</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form action="updatePfPic.php" method="post" name="modificaPfPic">
+                            <!-- Carico dinamicamente gli header salvati. -->
+                            <div class="container d-flex text-center">    
+                                <div id="zonaDinamicaPfPic">
+                                    ...
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success">Salva Foto Profilo</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="chiudi" type="button" class="btn btn-danger" data-bs-dismiss="modal">Chiudi</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="mt-2 text-center">
@@ -88,8 +163,14 @@
 
         <!-- NUOVA PASSWORD -->
         <div class="text-center mb-2" name="div_newpass">
-            <button class="btn btn-outline-dark" id="modifica">Modifica Password</button>
-            <div id="passDinamica" class="form-group mb-1"></div>
+            <button class="btn btn-outline-dark mb-2" id="modifica">Modifica Password</button>
+            <form action="updatePassword.php" method="post" name="modificaPassword">
+                <div id="passDinamica" class="form-group mb-1" style="display: none;">
+                    <label for="pswd-new" id="lb_pass">Nuova Password</label>
+                    <input name="new_pswrd" type="password" class="form-control mb-2" id="pswd-new" required>
+                    <button type="submit" class="btn btn-success mb-2">Salva Modifica</button>
+                </div>
+            </form>
         </div>
         
         <!-- Modal -->

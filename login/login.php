@@ -49,9 +49,13 @@
                     $name = $line["nome"];
 
                     // Inizializzo la sessione
-                    $_SESSION['email'] = $email;
                     $_SESSION['nome'] = $name;
                     $_SESSION['password'] = $pswrd;
+                    $_SESSION['email'] = $email;
+
+                    if (isset($_POST['rmb'])) {
+                        setcookie("currentuser", $email . "," . $pswrd);
+                    }
 
                     header("Location: ../paginaIniziale.html?name=$name");
                     exit();

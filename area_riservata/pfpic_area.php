@@ -13,7 +13,7 @@
 <body>
     <?php
         if($dbconn){
-            $tipo = "header";
+            $tipo = "pfpic";
 
             $query = "SELECT * from pictures WHERE tipo=$1";
             $result = pg_query_params($dbconn, $query, array($tipo));
@@ -23,8 +23,8 @@
                 $img = $line["img"];
 
                 echo"<label>";
-                echo"   <input type='radio' name='headergroup' value='$img'>";
-                echo"   <img src='$img' style='width: 175px; margin: 10px;'>";
+                echo"   <input type='radio' name='pfpicgroup' value='$img'>";
+                echo"   <img class='circle' src='$img' style='width: 100px; margin: 10px;'>";
                 echo"</label>";
 
                 $line=pg_fetch_array($result, null, PGSQL_ASSOC); 
