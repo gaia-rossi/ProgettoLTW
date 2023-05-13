@@ -59,6 +59,17 @@
 
                     header("Location: ../paginaIniziale.html?name=$name");
                     exit();
+    
+                    //inizializzo la sessione -gaia
+                    //$_SESSION['email'] = $email;
+                    //$_SESSION['nome'] = $name;
+                    //print_r($_SESSION);
+                    
+                    //header("Location: ../paginaIniziale.html?name=$name");
+                    //exit();
+
+                    //echo "<h1>Il login è andato a buon fine!</h1><br>
+                        //<a href=../paginaIniziale.html?name=$name> Clicca qui per iniziare ad utilizzare il sito </a>";
 
                 } else {
 
