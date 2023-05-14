@@ -11,8 +11,7 @@
 </head>
 <body>
     <?php
-        echo "<h2>Bentornato/a " . $_SESSION['nome'] . "</h2><br>";
-        echo $_SESSION['email'] . "<br>";
+        echo"<h3>Bentornato/a " . $_SESSION['nome'] . "</h3>";
     ?>
 </body>
 </html>

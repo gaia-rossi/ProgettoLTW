@@ -21,6 +21,7 @@ function inizializza(){
         $(".dropdown-item").click(function(){
           var x = this.id;
           $.ajax({
+            async:true,
             type: "POST",
             url: './eventi/queryiscrittiEventi.php',
             data: {'categoria' : x},
@@ -33,6 +34,7 @@ function inizializza(){
           });
     
           $.ajax({
+            async:true,
             type: "POST",
             url: './eventi/querylistaEventi.php',
             data: {'categoria' : x},
@@ -46,6 +48,7 @@ function inizializza(){
         });
 
         $.ajax({
+          async:true,
           type: "POST",
           url: './organizzatore.php',
           dataType: 'json',
