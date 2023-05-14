@@ -21,8 +21,6 @@
     </style>
 </head>
 <body>
-    <!--<div class="card-group">-->
-    <!--<div class="row row-cols-1 row-cols-md-3 g-4">-->
     <div class="container-fluid py-2 " style="overflow-y:scroll; overflow-y:auto;">
         <div class="d-flex flex-row flex-nowrap">
     <?php

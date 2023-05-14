@@ -18,6 +18,8 @@
     <title>Evento</title>
     
     <style>
+        body { padding-top: 50px; }
+
         .card-b {
             margin-right: 20px;
         }
@@ -61,7 +63,7 @@
         });  
     </script>   
 
-<nav class="navbar navbar-expand-lg bg-light navbar-dark bg-dark"> 
+<nav class="navbar navbar-expand-lg bg-light navbar-dark bg-dark fixed-top"> 
     <div class="container-fluid">
       <a class="navbar-brand" href="#">WEvent</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,7 +95,7 @@
         </ul>
       </div>
     </div>
-  </nav>
+</nav>
 
 <div class="container-fluid">
     <div class="row">
@@ -140,14 +142,15 @@
         </div>
     </div>
     
-</div>
-    
     <div class="container">
         <h3>Tutti i post </h3>
         <div class="container" id="zonapost">
             
         </div>
     </div>
+</div>
+    
+    
     
 </body>
 </html>
