@@ -26,8 +26,8 @@ function salvaUtente(){
     //inserire controlli 
     var o = {email: document.login_form.insert_email.value};
     var n = JSON.stringify(o);
-    alert(n);
+    //alert(n);
     localStorage.utente = n;
-    alert("inserito elemento!");
+    //alert("inserito elemento!");
     return true;
 }
