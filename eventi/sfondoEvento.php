@@ -26,7 +26,7 @@
             $line=pg_fetch_array($result, null, PGSQL_ASSOC);
             if($line != false){
                 $categoria = $line["categoria"];
-                echo "<img src='./icons/$categoria.jpg' class='card-img' alt='$categoria'>";
+                echo "<img src='../icons/$categoria.jpg' class='card-img' alt='$categoria'>";
             } 
             pg_close($dbconn);
         }
