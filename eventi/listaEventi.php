@@ -3,7 +3,7 @@
     or die('Could not connect: ' . pg_last_error());
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,8 +21,6 @@
     </style>
 </head>
 <body>
-    <!--<div class="card-group">-->
-    <!--<div class="row row-cols-1 row-cols-md-3 g-4">-->
     <div class="container-fluid py-2 " style="overflow-y:scroll; overflow-y:auto;">
         <div class="d-flex flex-row flex-nowrap">
     <?php
@@ -34,7 +32,7 @@
                 $nome=$line["nome"];
                 $data=$line["datae"];
                 $categoria = $line["categoria"];
-                echo"<div class='card card-b' style='width: 18rem;'>";
+                echo"<div class='card card-b' style='width: 18rem; background-color: #214878; color: white;'>";
                 echo"  <img class='card-img-top' src='../icons/$categoria.jpg' alt='Card image cap'>";
                 echo"  <div class='card-body'>";
                 echo"       <h5 class='card-title'>$nome</h5>";
