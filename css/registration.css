@@ -25,10 +25,10 @@ body {
   justify-content: center;
   align-items: center;
   background: transparent;
-  border: 2px solid white;
+  border: 2px solid deepskyblue;
   border-radius: 20px;
   backdrop-filter: blur(20px);
-  box-shadow: 0 0 30px grey;
+  box-shadow: 0 0 30px navy;
 }
 
 .myform {
@@ -108,28 +108,28 @@ h1 {
 }
 
 a:link {
-  color:orangered;
+  color: navy;
   background-color: transparent;
   text-decoration: none;
   font-weight: bold;
 }
 
 a:visited {
-  color: orangered;
+  color: navy;
   background-color: transparent;
   text-decoration: none;
   font-weight: bold;
 }
 
 a:hover {
-  color: orangered;
+  color: deepskyblue;
   background-color: none;
   text-decoration: underline;
   font-weight: bold;
 }
 
 a:active {
-  color: orangered;
+  color: navy;
   background-color: transparent;
   text-decoration: none;
   font-weight: bold;

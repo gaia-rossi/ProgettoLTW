@@ -17,7 +17,6 @@
     <title>Area Riservata</title>
 
     <!-- UTILIZZO JQUERY -->
-    <script src="jquery-3.6.0.js"></script>
     <script>
         $(document).ready(function(){
             $("#zonaDinamicaHeader").load("./header_area.php",

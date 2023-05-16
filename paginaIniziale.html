@@ -4,7 +4,7 @@
     <title>Pagina Iniziale</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css\pagin.css" type="text/css">
+    <link rel="stylesheet" href="./css/pagin.css">
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.css" />
     <script defer src="./bootstrap/js/bootstrap.bundle.js"></script>
 
@@ -18,14 +18,14 @@
   <!--NAVBAR-->
   <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #c1c8e4;"> 
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">WEvent</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="#"><span style="color:navy; font-weight:bold;">WE</span><span style="color:white; font-weight:bold;">vent</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar" aria-controls="myNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02" bs-toggle="collapse" data-bs-target=".navbar-collapse">
+      <div class="collapse navbar-collapse" id="myNavbar" bs-toggle="collapse" data-bs-target=".navbar-collapse">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="./paginaIniziale.html">Home</a>
           </li>
           <!-- menu a discesa per le categorie -->
           <li class="nav-item dropdown">
@@ -45,8 +45,8 @@
         </ul>
           <!--fine menu a discesa-->
           <form action="./eventi/cercaEvento.php" method="POST" class="d-flex" role="search" name="searchBar" onsubmit="return verifica();">
-            <input class="form-control me-2" name="bar" id="bar" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" id="barButton" type="submit"><img src="./icons/search.svg"  class="format-white"></button>
+            <input class="form-control me-2" name="bar" id="bar" type="search" placeholder="Search" aria-label="Search" size="45">
+            <button class="btn btn-outline-dark" id="barButton" type="submit"><img src="./icons/search.svg"  class="format-white"></button>
           </form>
         
           <ul class="navbar-nav justify-content-end">
@@ -69,12 +69,12 @@
   <!--navbar-->
   
   <div class="container-fluid" id="contenuto">
-    <div class="container-fluid" id="zonadibenvenuto">
+    <div class="container-fluid mt-5 mb-5" id="zonadibenvenuto" style="padding: 0px;">
       ...
     </div>
 
-    <button id="aggiungi" class="btn btn-success btn-lg float-end" data-bs-target="#myModal" data-bs-toggle="modal">
-      <img src="./icons/plus-lg.svg"  class="format-white"> Nuovo Evento
+    <button id="aggiungi" class="btn btn-lg float-end" data-bs-target="#myModal" data-bs-toggle="modal">
+      <img src="./icons/plus-lg.svg" class="format-white"> Nuovo Evento
     </button>
     <!--finestra modale che inizialmente non appare perchè nascosta -->
     <div id="myModal" class="modal fade" tabindex="-1"> <!--tabIndex a -1 rende un tasto non navigabile, se messo a 0 funziona il focus se metto il tab-->
@@ -134,11 +134,11 @@
       </div>
     </div>
 
-      <h3> Eventi a cui sei iscritto ...</h3>  
+      <h3>Eventi a cui sei iscritto ...</h3>  
       <div id="zonaiscrizioni">...</div>
       
 
-      <h3 id="elencoEventi">... ed eventi che ti potrebbero piacere</h3>
+      <h3 id="elencoEventi">... ed eventi che ti potrebbero piacere.</h3>
       <div id="zonaeventi">...</div>
       
       

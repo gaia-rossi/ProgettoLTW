@@ -10,13 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Lista Eventi</title>
-    <style>
-        .card-b {
-            min-height: 300px;
-            min-width: 300px;
-            margin-right: 5px;
-        }
-    </style>
+
 </head>
 <body>
     <div class="container-fluid py-2 " style="overflow-y:scroll; overflow-y:auto;">
@@ -30,12 +24,12 @@
                 $nome=$line["nome"];
                 $data=$line["datae"];
                 $categoria = $line["categoria"];
-                echo"<div class='card card-b' style='width: 18rem; background-color: #323232; color: white;'>";
+                echo"<div class='card card-b' style='width: 18rem;'>";
                 echo"  <img class='card-img-top' src='../icons/$categoria.jpg' alt='Card image cap'>";
                 echo"  <div class='card-body'>";
                 echo"       <h5 class='card-title'>$nome</h5>";
                 echo"       <p class='card-text'>L'evento si terrà in data: $data </p>";
-                echo"       <a href='eventi\sessione.php?evento=$nome&data=$data' class='btn btn-primary' id='go'>Vai all'evento</a>";                        
+                echo"       <a href='eventi\sessione.php?evento=$nome&data=$data' class='btn btn-dark' id='go'>Vai all'evento</a>";                        
                 echo"   </div>";
                 echo"</div>";
                 $line=pg_fetch_array($result, null, PGSQL_ASSOC); 

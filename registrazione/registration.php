@@ -2,7 +2,7 @@
 <?php
 
     if ($_SERVER["REQUEST_METHOD"] != "POST") {
-        header("Location: /registrazione/registration.html");
+        header("Location: ./registration.html");
     } else {
         // INIALIZZO CONNESSIONE
         $dbconn = pg_connect("host=localhost port=5432
@@ -36,9 +36,9 @@
             if ($line = pg_fetch_array($result, null)) {
 
                 // L'EMAIL E' GIA' PRESENTE NEL DATABASE, L'UTENTE NON SI DEVE REGISTRARE NUOVAMENTE
-                echo "L'indirizzo Email è già in uso! Clicca 
-                    <a href=../login/login.html>qui</a> per accedere, altrimenti
-                    usa un altro indirizzo.";
+                $errore = "L'indirizzo Email è già in uso! Clicca <br> <a href=./login/login.html>qui</a> per accedere, altrimenti <br> usa un <a href=./registrazione/registration.html>altro indirizzo</a>.";
+                header("Location: ../gestione_errori.php?errore=$errore");
+                exit();
             
             } else {
 
@@ -65,10 +65,13 @@
 
                 // TUPLA INSERITA
                 if ($result) {
-                    header("Location: ../login/pre_login.html");
+                    $errore = "La registrazione è andata a buon fine! <br> Puoi accedere tramite la pagina di <br> <a href=./login/login.html>login!</a>";
+                    header("Location: ../gestione_errori.php?errore=$errore");
                     exit();
                 } else {
-                    die("La registrazione non è andata a buon fine. Prova di nuovo!");
+                    $errore = "La registrazione non è andata a buon fine! Clicca <br> <a href=./registrazione/registration.html>qui</a> per provare <br> di nuovo.";
+                    header("Location: ../gestione_errori.php?errore=$errore");
+                    exit();
                 }
 
             }
