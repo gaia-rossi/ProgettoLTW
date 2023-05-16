@@ -62,6 +62,21 @@ function inizializza(){
             alert("Chiamata fallita per nascondere evento!!!");
           }
         });
+
+        //metto il nome utente per accedere all'area riservata
+        $.ajax({
+          async:true,
+          type: "POST",
+          url: './area_riservata/ottieniNome.php',
+          dataType: 'json',
+          success: function(result){
+            var x = result["nomeUtente"];
+            document.getElementById("arearis").innerHTML = x;   
+          },
+          error: function(){
+            alert("Chiamata fallita per nascondere evento!!!");
+          }
+        });
     });
     return true;
 }
