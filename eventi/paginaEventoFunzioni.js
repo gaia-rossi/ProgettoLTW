@@ -1,5 +1,6 @@
 function inizializza(){
     $(document).ready(function(){
+        //inizializza la copertina con le informazioni sull'evento
         $.ajax({
             async:true,
             type: "POST",
@@ -26,23 +27,39 @@ function inizializza(){
         });
 
          // jquery per tasto iscrizioni
-         /*$("#subButton").click(function(){
+         $("#subButton").click(function(){
             $("#roba").load("../eventi/iscrizioneEvento.php",
                 function(responseTxt, statusTxt, xhr){
                     if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
-                });
+            });
+           
         });
 
-        //richiesta per caricare l'immagine correttamente
-        $("#fotoCategoria").load("../eventi/sfondoEvento.php",
-            function(responseTxt, statusTxt, xhr){
-                    if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
+        
+        //nascondo i bottoni 'scrivi commento' e 'aggiungipost' per colore che non sono iscritti
+        $.ajax({
+            async:true,
+            type: "POST",
+            url: './nascondiTasti.php',
+            dataType: 'json',
+            success: function(result){
+                var res = result["iscritto"];
+                if(res == 0){
+                    $("#cardPost").hide();
+                    $("#zonaPost").hide();
+                }else{
+                    document.getElementById("subButton").disabled = true;
+                }
+            },
+            error: function(){
+              alert("Chiamata fallita per nascondere evento!!!");
+            }
         });
 
         //carico tutti i post
         $("#zonapost").load("../post/mostraPost.php",
             function(responseTxt, statusTxt, xhr){
                     if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
-        });*/
+        });
     });
 }

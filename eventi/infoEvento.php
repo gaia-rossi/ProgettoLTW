@@ -16,7 +16,6 @@
             $categoria = $line["categoria"];
             $info = $line["infoevento"];
             $organizzatore = $line["organizzatore"];
-            //echo "<img src='../icons/$categoria.jpg' class='card-img' alt='$categoria'>";
             $res = array('nomee'=>$nome, 'datae'=>$data, 'categoria'=>$categoria, 'info'=>$info, 'organizzatore'=>$organizzatore);
 
             header('Content-type: application/json');
