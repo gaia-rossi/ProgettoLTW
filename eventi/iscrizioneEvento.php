@@ -23,7 +23,7 @@
             $query = "SELECT * from iscritti where email=$1 and nomee=$2 and datae=$3";
             $result = pg_query_params($dbconn, $query, array($utente, $evento, $data));
             if($line=pg_fetch_array($result)){
-                echo "Risulti già iscritto! clicca <a href='./paginaIniziale.html'> QUI </a>
+                echo "Risulti già iscritto! clicca <a href='../paginaIniziale.html'> QUI </a>
                     vedere tutti gli eventi"; //cambiare indirizzo
             } else {
                 $query2 = "INSERT INTO iscritti (email, nomeE, dataE)
@@ -31,7 +31,7 @@
                 $result = pg_query_params($dbconn, $query2,array($utente, $evento, $data));
                 if($result){
                     echo "Iscritto correttamente!<br>
-                    clicca <a href='./paginaIniziale.html'> QUI </a> per vedere la lista degli eventi aggiornata";
+                    clicca <a href='../paginaIniziale.html'> QUI </a> per vedere la lista degli eventi aggiornata";
                 } else {
                     die("l'inserimento non è andato a buon fine. Prova di nuovo");
                 }

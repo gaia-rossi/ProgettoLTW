@@ -27,7 +27,7 @@
             $result = pg_query_params($dbconn, $query,array($npost, $contenuto, $utente));
             if($result){
                 echo "Commento inserito correttamente!<br>
-                clicca <a href='../paginaEvento.php'> QUI </a> per vedere la lista degli eventi aggiornata";
+                clicca <a href='../eventi/paginaEvento.html'> QUI </a> per vedere la lista degli eventi aggiornata";
             } else {
                 die("Qualcosa è andato storto. Prova di nuovo");
             }

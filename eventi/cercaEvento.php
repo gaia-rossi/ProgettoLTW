@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
     <script defer src="../bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../jquery-3.6.0.js"></script>
-    <title>Lista Eventi</title>
+    <title>Ricerca Eventi</title>
     <style>
         .card-b {
             min-height: 300px;
@@ -23,14 +23,16 @@
 </head>
 <body>
     <!-- inclusione navbar-->
-    <?php include "../navbar.html" ;?>
-
+    <?php include "../navbar.html";?>
+    <?php
+        $r = $_POST["bar"];
+        echo "<h3> Ecco gli eventi che contengono '$r' nel titolo</h3></br>"; 
+    ?>
 
     <div class="container-fluid py-2 " style="overflow-y:scroll; overflow-y:auto;">
         <div class="d-flex flex-row flex-nowrap">
     <?php
         if($dbconn){
-            $r = $_POST["bar"];
             $ricerca = '%'. $r . '%';
             $query = "SELECT * from evento where nome like $1";
             $result = pg_query_params($dbconn, $query, array($ricerca));
