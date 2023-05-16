@@ -59,22 +59,12 @@
 
                     header("Location: ../paginaIniziale.html?name=$name");
                     exit();
-    
-                    //inizializzo la sessione -gaia
-                    //$_SESSION['email'] = $email;
-                    //$_SESSION['nome'] = $name;
-                    //print_r($_SESSION);
-                    
-                    //header("Location: ../paginaIniziale.html?name=$name");
-                    //exit();
-
-                    //echo "<h1>Il login è andato a buon fine!</h1><br>
-                        //<a href=../paginaIniziale.html?name=$name> Clicca qui per iniziare ad utilizzare il sito </a>";
 
                 } else {
 
                     // NESSUNA CORRISPONDENZA CON LA PASSWORD
-                    header("Location: ./retry.html");
+                    $errore = "La password inserita è sbagliata. <br> Clicca <a href=./login/login.html>qui</a> per <br> riprovare ad accedere, <br> altrimenti clicca <a href=./registrazione/registration.html>qui</a> <br> per registrarti con un'altra mail.";
+                    header("Location: ../gestione_errori.php?errore=$errore");
                     exit();
 
                 }
@@ -82,7 +72,8 @@
             } else {
 
                 // NON HO TROVATO L'INDIRIZZO EMAIL NEL DATABASE
-                header("Location: ../registrazione/pre_registration.html");
+                $errore = "L'indirizzo e-mail non appartiene <br> a nessun utente registrato! <br> Puoi iscriverti tramite la pagina di <br> <a href=./registrazione/registration.html>registrazione! </a>";
+                header("Location: ../gestione_errori.php?errore=$errore");
                 exit();
             }
 

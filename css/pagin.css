@@ -1,8 +1,51 @@
 
-body { padding-top: 50px; }
+body { 
+  padding-top: 50px;
+}
 
-button {
-  background-color: #132456;
+#myNavbar {
+  margin-top: 2px;
+}
+
+#aggiungi {
+  background-color: white;
+  color: black;
+  box-shadow: 0px 2px 4px 0px navy;
+}
+
+.modal {
+  backdrop-filter: blur(15px);
+}
+
+.card-b {
+  min-height: 300px;
+  min-width: 300px;
+  margin-right: 5px;
+}
+
+.card-b a{
+  background-color: #323232;
+}
+
+.card-b a:hover{
+  background-color: navy;
+}
+
+#barButton {
+  background-color: #323232;
+}
+
+#barButton:hover {
+  background-color: navy;
+}
+
+#aggiungi {
+  background-color: #323232;
+  color: white;
+}
+
+#aggiungi:hover {
+  background-color: navy;
 }
 
 .format-white {

@@ -2,7 +2,7 @@
     session_start();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +11,7 @@
 </head>
 <body>
     <?php
-        echo"<h3>Bentornato/a " . $_SESSION['nome'] . "</h3>";
+        echo"<h3>Bentornato/a <span style='color:navy;'>" . $_SESSION['nome'] . "</span>!</h3>";
     ?>
 </body>
 </html>
