@@ -24,14 +24,14 @@
             $result = pg_query_params($dbconn, $query, array($utente, $evento, $data));
             if($line=pg_fetch_array($result)){
                 echo "Risulti già iscritto! clicca <a href='../paginaIniziale.html'> QUI </a>
-                    vedere tutti gli eventi"; //cambiare indirizzo
+                    vedere tutti gli eventi"; 
             } else {
                 $query2 = "INSERT INTO iscritti (email, nomeE, dataE)
                             VALUES ($1, $2, $3)";
                 $result = pg_query_params($dbconn, $query2,array($utente, $evento, $data));
                 if($result){
                     echo "Iscritto correttamente!<br>
-                    clicca <a href='../paginaIniziale.html'> QUI </a> per vedere la lista degli eventi aggiornata";
+                    clicca <a href='./paginaEvento.html'> QUI </a> per aggiornare la pagina";
                 } else {
                     die("l'inserimento non è andato a buon fine. Prova di nuovo");
                 }

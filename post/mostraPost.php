@@ -9,9 +9,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
-    <script defer src="../bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../jquery-3.6.0.js"></script>
 
     <title>Lista post</title>
 </head>
@@ -31,35 +28,33 @@
                 //query per cercare tutti i commenti a quel post
                 $numerop=$line["numero"];
 
+
+                echo "<div class='card card-b'>";
+                echo "  <div class='card-header'>";
+                echo        $utente;
+                echo "  </div>";            
+                echo "  <div class='card-body'>";
+                echo    $contenuto;
+                echo "  </div>";
+                echo "  <div class='card-footer text-muted'>";
+                echo "      <a id='visualizzac' data-bs-target='#myModal$numerop' data-bs-toggle='modal'>visualizza i commenti</a>";
+                echo "      <div id='myModal$numerop' class='modal fade' tabindex='-1'>";
+                echo "          <div class='modal-dialog'>";
+                echo"               <div class='modal-content'>  <!-- contenuto della finestra modale-->";
+                echo"                   <div class='modal-header'> <!-- HEADER-->";
+                echo"                   I commenti al post";
+                echo"                   <button class='btn-close' data-bs-dismiss='modal'></button> <!--crocetta per chiudere-->";
+                echo"               </div>";
+                echo"               <div class='modal-body'>";
+                echo"                   <div class='container'>";
+                echo"                    $utente ha scritto: $contenuto";
+                echo"               </div>";
+                echo"               <div class='container'>";
+                
                 $query2 = "SELECT * from commenti where numerop=$1";
                 $result2 = pg_query_params($dbconn, $query2, array($numerop));
                 $line2=pg_fetch_array($result2, null, PGSQL_ASSOC);
 
-                echo "<div class='card card-b'>";
-                echo "  <div class='card-header'>";
-                echo $utente;
-                echo "  </div>";            
-                echo "  <div class='card-body'>";
-                echo $contenuto;
-                echo "  </div>"; 
-                echo "  <div class='card-footer text-muted'>";
-                #finestra modale per commenti
-                echo "<a id='visualizzac' data-bs-target='#myModal2' data-bs-toggle='modal'>visualizza i commenti<a>
-                        <div id='myModal2' class='modal fade' tabindex='-1'>
-                            <div class='modal-dialog'>
-                                <div class='modal-content'>  <!-- contenuto della finestra modale-->
-                                    <div class='modal-header'> <!-- HEADER-->
-                                        I commenti al post
-                                        <button class='btn-close' data-bs-dismiss='modal'></button> <!--crocetta per chiudere-->
-                                    </div>
-                                    <div class='modal-body'>
-                                        <div class='container'>
-                                            $utente ha scritto:
-                                            <br>
-                                            $contenuto
-                                            <br>
-                                        </div>
-                                        <div container>";
                 #caricamento commenti
                 while($line2!=false){
                     $commento = $line2["contenuto"];
@@ -67,40 +62,41 @@
                     echo "$autore ha commentato: $commento <br>";
                     $line2=pg_fetch_array($result2, null, PGSQL_ASSOC); 
                 }
+                echo"               </div>";
+                echo"           </div> <!--BODY-->";
+                echo"            <div class='modal-footer'> <!--FOOTER-->
+                                    <button class='btn btn-danger' data-bs-dismiss='modal'>Chiudi</button>      
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+        <!--tasto commenta-->
+        <button id='scrivic' class='btn btn-success btn-sm float-end' data-bs-target='#myModalp$numerop' data-bs-toggle='modal'> Scrivi un commento
+        </button>
+        <div id='myModalp$numerop' class='modal fade' tabindex='-1'>
+            <div class='modal-dialog'>
+                <div class='modal-content'>  <!-- contenuto della finestra modale-->
+                    <div class='modal-header'> <!-- HEADER-->
+                        Scrivi un commento
+                        <button class='btn-close' data-bs-dismiss='modal'></button> <!--crocetta per chiudere-->
+                    </div>
+                    <div class='modal-body'>
+                        <form action='../post/inserisciCommenti.php?numerop=$numerop' method='post' name='pubblicaCommento'>
+                            <textarea name='contenuto' id='contenuto' class='form-control' size='250' maxlength='250' placeholder='...' required></textarea>
+                            <button type='submit' class='btn btn-outline-success'>Pubblica</button>
+                            <button type='reset' class='btn btn-outline-warning'>Reset </button>
+                    </form>
+                    </div> <!--BODY-->
+                    <div class='modal-footer'> <!--FOOTER-->  
+                        <button class='btn btn-danger' data-bs-dismiss='modal'>Chiudi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>";
 
-                echo"                   </div>
-                                    </div> <!--BODY-->
-                                    <div class='modal-footer'> <!--FOOTER-->  
-                                        <button class='btn btn-danger' data-bs-dismiss='modal'>Chiudi</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>";
-                #finestra modale per commentare
-                echo "<button id='scrivic' class='btn btn-success btn-sm float-end' data-bs-target='#myModal' data-bs-toggle='modal'> Scrivi un commento
-                        </button>";
-                echo" <div id='myModal' class='modal fade' tabindex='-1'>
-                        <div class='modal-dialog'>
-                            <div class='modal-content'>  <!-- contenuto della finestra modale-->
-                                <div class='modal-header'> <!-- HEADER-->
-                                    Scrivi un commento
-                                    <button class='btn-close' data-bs-dismiss='modal'></button> <!--crocetta per chiudere-->
-                                </div>
-                                <div class='modal-body'>
-                                    <form action='post\inserisciCommenti.php?numerop=$numerop' method='post' name='pubblicaCommento'>
-                                        <textarea name='contenuto' id='contenuto' class='form-control' size='250' maxlength='250' placeholder='...' required></textarea>
-                                        <button type='submit' class='btn btn-outline-success'>Pubblica</button>
-                                        <button type='reset' class='btn btn-outline-warning'>Reset </button>
-                                    </form>
-                                </div> <!--BODY-->
-                                <div class='modal-footer'> <!--FOOTER-->  
-                                    <button class='btn btn-danger' data-bs-dismiss='modal'>Chiudi</button>
-                                </div>
-                            </div>
-                        </div>";
-                echo "  </div>";
-                echo "  </div>";
-                echo "</div>";
                 $line=pg_fetch_array($result, null, PGSQL_ASSOC); 
             }
 
@@ -108,6 +104,11 @@
         }
     ?>
 
+ 
+    
+                                
+
+    
     
     
 </body>
