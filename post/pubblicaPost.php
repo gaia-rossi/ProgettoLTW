@@ -30,8 +30,8 @@
                         VALUES ($1, $2, $3, $4, $5)";
             $result2 = pg_query_params($dbconn, $query2,array($numero, $evento, $data, $utente, $post));
             if($result2){
-                echo "Postato correttamente correttamente!<br>
-                clicca <a href='../eventi/paginaEvento.html'> QUI </a> per vedere la lista degli eventi aggiornata";
+                header("Location: ../eventi/paginaEvento.html");
+                exit();
             } else {
                 die("Qualcosa è andato storto. Prova di nuovo");
             }
