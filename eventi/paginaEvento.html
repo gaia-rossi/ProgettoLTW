@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <title>Pagina Evento</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="..\css\pagin.css" type="text/css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
+    <script defer src="../bootstrap/js/bootstrap.bundle.js"></script>
+
+    <!-- IMPORT FILE JAVASCRIPT -->
+    <script src="paginaEventoFunzioni.js" type="application/javascript"></script>
+
+</head>
+<body onload="inizializza()" style="background-color: #c1c8e4">
+  <script src="../jquery-3.6.0.js"></script>
+
+  <!--NAVBAR-->
+  <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #c1c8e4;"> 
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">WEvent</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav d-flex">
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="../area_riservata/area_riservata.html">
+                <img src="../icons/person-fill.svg"  class="format-white"> Area Riservata
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  href="../index.html">
+                <img src="../icons/escape.svg" class="format-white"> Logout
+                </a>
+            </li>
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+  <!--navbar-->
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-9">
+        <!-- HEADER DELLA PAGINA -->
+        <div class="card text-bg-dark card-b">
+            <div id="fotoCategoria">
+                <img src='' class='card-img' alt='...'>
+            </div>
+            <div class="card-img-overlay">
+                <h5 class="card-title" id="nomeEvento">
+                    nome evento
+                </h5>
+                Data di svolgimento: <p class="card-text" id="dataEvento"> data</p>
+                Info:<p class="card-text" id="infoEvento"> info evento</p>
+                Categoria: <p class="card-text" id="catEvento"></p>
+                Organizzato da: <p class="card-text" id="organizzatore"></p>
+                
+            </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <!-- CARD PER PUBBLICARE CONTENUTI-->
+            <div class="card card-b">
+                <div class="card-header">
+                Partecipa alla conversazione!
+                </div>
+                <div class="card-body">
+                    <form action="../post/pubblicaPost.php" method="post" name="pubblicaPost">
+                        <textarea name="contenuto" id="contenuto" class="form-control" size="500" maxlength="500" placeholder="..." required></textarea>
+                        <button type="submit" class="btn btn-outline-success">Pubblica</button>
+                        <button type="reset" class="btn btn-outline-warning">Reset </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="container">
+                <button class="btn btn-success btn-lg" id="subButton">
+                <img src="../icons/bookmarks-fill.svg"  class="format-white"> Iscriviti!
+                </button>
+            </div>
+
+                    
+            <div id="roba">
+                ...
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h3>Tutti i post </h3>
+        <div class="container" id="zonapost">
+            
+        </div>
+    </div>
+</div>
+    
+
+</body>
+</html>

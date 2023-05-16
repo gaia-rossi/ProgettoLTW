@@ -31,7 +31,7 @@
             $result2 = pg_query_params($dbconn, $query2,array($numero, $evento, $data, $utente, $post));
             if($result2){
                 echo "Postato correttamente correttamente!<br>
-                clicca <a href='../paginaEvento.php'> QUI </a> per vedere la lista degli eventi aggiornata";
+                clicca <a href='../eventi/paginaEvento.html'> QUI </a> per vedere la lista degli eventi aggiornata";
             } else {
                 die("Qualcosa è andato storto. Prova di nuovo");
             }
