@@ -8,9 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
-    <script defer src="../bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../jquery-3.6.0.js"></script>-->
+
     <title>Lista Eventi</title>
     <style>
         .card-b {
@@ -32,7 +30,7 @@
                 $nome=$line["nome"];
                 $data=$line["datae"];
                 $categoria = $line["categoria"];
-                echo"<div class='card card-b' style='width: 18rem; background-color: #214878; color: white;'>";
+                echo"<div class='card card-b' style='width: 18rem; background-color: #323232; color: white;'>";
                 echo"  <img class='card-img-top' src='../icons/$categoria.jpg' alt='Card image cap'>";
                 echo"  <div class='card-body'>";
                 echo"       <h5 class='card-title'>$nome</h5>";
