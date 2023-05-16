@@ -8,9 +8,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
+    <!--<link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
     <script defer src="../bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../jquery-3.6.0.js"></script>
+    <script src="../jquery-3.6.0.js"></script>-->
     <title>Lista Eventi</title>
     <style>
         .card-b {

@@ -11,9 +11,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css" />
-    <script defer src="./bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="jquery-3.6.0.js"></script>
     <title>Lista Eventi</title>
     <style>
         .card-b {
@@ -30,6 +27,10 @@
                 if($dbconn){
                     $utente = $_SESSION["email"];
                     $categoria = $_POST["categoria"];
+                    if($categoria == "Tutti"){
+                        header("Location: ./listaIscrittiEventi.php");
+                        exit();
+                    }
                     $query = "SELECT * from iscritti join evento on iscritti.nomee =evento.nome and iscritti.datae = evento.datae 
                             where email=$1 and categoria=$2";
                     $result = pg_query_params($dbconn, $query, array($utente, $categoria));
