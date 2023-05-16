@@ -52,7 +52,7 @@
                 if (isset($_POST["org"])) {
                     $org = 1;
                 }
-                $header = "../pictures/outrageous_orange.jpg";
+                $header = "../pictures/maya_blue.jpg";
                 $pfpic = "../avatars/user.png";
 
                 // QUERY PER INSERIRE LA NUOVA TUPLA NEL DATABASE
