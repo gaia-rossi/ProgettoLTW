@@ -34,7 +34,7 @@
     <?php
         if($dbconn){
             $ricerca = '%'. $r . '%';
-            $query = "SELECT * from evento where nome like $1";
+            $query = "SELECT * from evento where lower(nome) like lower($1)";
             $result = pg_query_params($dbconn, $query, array($ricerca));
             $line=pg_fetch_array($result, null, PGSQL_ASSOC);
             while($line != false){
@@ -42,11 +42,11 @@
                 $data=$line["datae"];
                 $categoria = $line["categoria"];
                 echo"<div class='card card-b' style='width: 18rem;'>";
-                echo"  <img class='card-img-top' src='../icons/$categoria.jpg' alt='Card image cap'>";
+                echo"  <img class='card-img-top' src='../icons/$categoria.jpg' alt='$categoria'>";
                 echo"  <div class='card-body'>";
                 echo"       <h5 class='card-title'>$nome</h5>";
                 echo"       <p class='card-text'>L'evento si terrà in data: $data </p>";
-                echo"       <a href='./paginaEvento.php?evento=$nome&data=$data' class='btn btn-primary'>Vai all'evento</a>";                        
+                echo"       <a href='./paginaEvento.html?evento=$nome&data=$data' class='btn btn-primary'>Vai all'evento</a>";                        
                 echo"   </div>";
                 echo"</div>";
                 $line=pg_fetch_array($result, null, PGSQL_ASSOC); 
