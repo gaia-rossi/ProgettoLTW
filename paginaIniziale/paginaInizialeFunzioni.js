@@ -13,7 +13,7 @@ function loadEventi(){
 }
 
 function loadBenvenuto(){
-  $("#zonadibenvenuto").load("inizializzazioneSession.php",
+  $("#zonadibenvenuto").load("./paginaIniziale/inizializzazioneSession.php",
     function(responseTxt, statusTxt, xhr){
       if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
     });
@@ -54,7 +54,7 @@ function setupOrganizzatore(){
   $.ajax({
     async:true,
     type: "POST",
-    url: './organizzatore.php',
+    url: './paginaIniziale/organizzatore.php',
     dataType: 'json',
     success: function(result){
       var j = result['organizzatore'];
@@ -111,8 +111,31 @@ function stampaStorage(){
 }
 
 function verifica(){
-    if(document.searchBar.bar.value== ""){
-      alert("non hai inserito nessun evento da cercare!");
-      return false;
-    }   
+  if(document.searchBar.bar.value== ""){
+    alert("non hai inserito nessun evento da cercare!");
+    return false;
+  }  
+  return true; 
+}
+
+function verificaEvento(){
+  //controllo che la data dell'evento sia posteriore o uguale alla giornata odierna
+  var d = document.getElementById("dataEvento").value;
+  var ds = d.toString();
+  var arr = ds.split("-");
+  
+  var currd = new Date();
+  var day = currd.getDate();
+  var month = currd.getMonth()+1;
+  var year = currd.getFullYear();
+
+  if(arr[0]>=year){
+    if(arr[1]>=month){
+      if(arr[2]>=day){
+        return true;
+      }
+    }
   }
+  alert("non puoi inserire una data passata!");
+  return false;
+}
