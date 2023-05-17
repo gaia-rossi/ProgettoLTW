@@ -84,28 +84,28 @@ h1 {
 }
 
 a:link {
-  color:navy;
+  color: deepskyblue;
   background-color: transparent;
   text-decoration: none;
   font-weight: bold;
 }
 
 a:visited {
-  color: navy;
+  color: deepskyblue;
   background-color: transparent;
   text-decoration: none;
   font-weight: bold;
 }
 
 a:hover {
-  color: deepskyblue;
+  color: navy;
   background-color: none;
   text-decoration: underline;
   font-weight: bold;
 }
 
 a:active {
-  color:navy;
+  color: deepskyblue;
   background-color: transparent;
   text-decoration: none;
   font-weight: bold;

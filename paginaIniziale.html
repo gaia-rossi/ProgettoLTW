@@ -56,13 +56,13 @@
           <ul class="navbar-nav justify-content-end">
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="./area_riservata/area_riservata.html">
-                <img src="./icons/person-fill.svg"  class="format-white">
+                <img src="./icons/person-fill.svg"  class="format-white" style="margin-right: 2px;">
                 <span id="arearis"> Area Riservata </span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link"  href="./index.html">
-                <img src="./icons/escape.svg" class="format-white"> Logout
+                <img src="./icons/escape.svg" class="format-white" style="margin-right: 2px;">Logout 
               </a>
             </li>
             
@@ -74,7 +74,7 @@
   <!--navbar-->
   
   <div class="container-fluid" id="contenuto">
-    <div class="container-fluid mt-5 mb-5" id="zonadibenvenuto" style="padding: 0px;">
+    <div class="container-fluid mt-5 mb-3" id="zonadibenvenuto" style="padding: 0px;">
       ...
     </div>
 
@@ -87,7 +87,7 @@
         <div class="modal-content">  <!-- contenuto della finestra modale-->
           <div class="modal-header"> <!-- HEADER-->
             Crea un nuovo evento
-            <button class="btn-close" data-bs-dismiss="modal"></button> <!--crocetta per chiudere-->
+            <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button> <!--crocetta per chiudere-->
           </div>
           <div class="modal-body">
             <form action="creaEvento.php" method="post" name="creazioneEvento">
@@ -125,26 +125,28 @@
               <!--organizzatore pre-compilato-->
               <div class="form-group mb-3">
                 <img src = "./icons/chevron-down.svg" alt="BOH">
-                <label for="orID">organizzatore</label>
+                <label for="orID">Organizzatore</label>
                 <input type="text" name="organizzatore" id="orID" class="form-control myinputs" size="40" maxlength="40" readonly>
               </div> 
               <button type="submit" class="btn btn-outline-success">Crea evento </button>
-              <button type="reset" class="btn btn-outline-warning">Reset </button>
+              <button type="reset" class="btn btn-outline-danger">Reset </button>
             </form>
-          </div> <!--BODY-->
-          <div class="modal-footer"> <!--FOOTER-->  
-                <button class="btn btn-danger" data-bs-dismiss="modal">Chiudi</button>
           </div>
         </div>
       </div>
     </div>
 
-      <h3>Eventi a cui sei iscritto ...</h3>  
+      <div class="container-fluid mycont">
+        <img src = "./icons/check-circle-fill.svg" alt="Iscritto">
+        <label>Eventi a cui sei iscritto ...</label>
+      </div>
       <div id="zonaiscrizioni">...</div>
       
-
-      <h3 id="elencoEventi">... ed eventi che ti potrebbero piacere.</h3>
-      <div id="zonaeventi">...</div>
+      <div class="container-fluid mycont mt-3">
+        <img src = "./icons/question-circle-fill.svg" alt="Non Iscritto">
+        <label id="elencoEventi">... ed eventi che ti potrebbero piacere</label>
+      </div>
+      <div id="zonaeventi" class="mb-5">...</div>
       
       
       <div id="provetta"> </div>
