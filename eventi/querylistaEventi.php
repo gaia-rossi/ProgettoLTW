@@ -31,7 +31,7 @@
                         echo"  <div class='card-body'>";
                         echo"       <h5 class='card-title'>$nome</h5>";
                         echo"       <p class='card-text'>L'evento si terrà in data: $data </p>";
-                        echo"       <a href='./paginaEvento.php?evento=$nome&data=$data' class='btn btn-primary'>Vai all'evento</a>";                        
+                        echo"       <a href='eventi\sessione.php?evento=$nome&data=$data' class='btn btn-primary'>Vai all'evento</a>";                        
                         echo"   </div>";
                         echo"</div>";
                         $line=pg_fetch_array($result, null, PGSQL_ASSOC); 
