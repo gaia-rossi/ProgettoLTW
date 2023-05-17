@@ -17,8 +17,13 @@ function inizializza(){
                 document.getElementById("infoEvento").innerHTML = infoevento;
                 document.getElementById("organizzatore").innerHTML = organizzatore;
 
+                document.getElementById("nomeEventoShort").innerHTML = nomee;
+                document.getElementById("dataEventoShort").innerHTML = datae;
+                document.getElementById("infoEventoShort").innerHTML = infoevento;
+                document.getElementById("organizzatoreShort").innerHTML = organizzatore;
                 
                 document.getElementById("catEvento").innerHTML = categoria;
+                document.getElementById("catEventoShort").innerHTML = categoria;
                 document.getElementById("fotoCategoria").innerHTML = "<img src='../icons/" + categoria + ".jpg' class='card-img' alt='$categoria'>"
             },
             error: function(){

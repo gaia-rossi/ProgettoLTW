@@ -47,6 +47,7 @@ function inizializza(){
           });
         });
 
+        // Nascondi tasto Nuovo Evento se non sei Organizzatore.
         $.ajax({
           async:true,
           type: "POST",
