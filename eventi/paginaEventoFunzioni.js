@@ -1,5 +1,20 @@
 function inizializza(){
     $(document).ready(function(){
+        //inizializzo l'area riservata con il nome dell'utente
+        $.ajax({
+            async:true,
+            type: "POST",
+            url: '../area_riservata/ottieniNome.php',
+            dataType: 'json',
+            success: function(result){
+              var x = result["nomeUtente"];
+              document.getElementById("arearis").innerText = x;   
+            },
+            error: function(){
+              alert("Chiamata fallita per nascondere evento!!!");
+            }
+          });
+
         //inizializza la copertina con le informazioni sull'evento
         $.ajax({
             async:true,

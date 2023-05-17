@@ -30,10 +30,16 @@
                 $organizzatore = $_POST["organizzatore"];
                 $query2 = "INSERT INTO evento (nome, dataE, categoria, infoEvento, organizzatore)
                             VALUES ($1, $2, $3, $4, $5)";
-                $result = pg_query_params($dbconn, $query2,array($nomeEvento, $dataEvento, $categoria, $infoEvento, $organizzatore));
-                if($result){
-                    echo "L'evento è stato inserito correttamente!<br>
-                    clicca <a href='./paginaIniziale.html'> QUI </a> per vedere la lista degli eventi aggiornata";
+                $result2 = pg_query_params($dbconn, $query2,array($nomeEvento, $dataEvento, $categoria, $infoEvento, $organizzatore));
+                if($result2){
+                    //iscrizione dell'organizzatore al suo evento
+                    $query3 = "INSERT INTO iscritti (email, nomee, datae)
+                            VALUES ($1, $2, $3)";
+                    $result3 = pg_query_params($dbconn, $query3,array($organizzatore, $nomeEvento, $dataEvento));
+                    if($result3){
+                        header("Location: ./paginaIniziale.html");
+                        exit();
+                    }
                 } else {
                     die("l'inserimento non è andato a buon fine. Prova di nuovo");
                 }
