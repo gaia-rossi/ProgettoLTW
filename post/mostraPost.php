@@ -29,19 +29,19 @@
                 $numerop=$line["numero"];
 
 
-                echo "<div class='card card-b'>";
-                echo "  <div class='card-header'>";
+                echo "<div class='card mb-2'>";
+                echo "  <div class='card-header' style='background-color: #247BA0; color:white;'>";
                 echo        $utente;
                 echo "  </div>";            
                 echo "  <div class='card-body'>";
                 echo    $contenuto;
                 echo "  </div>";
                 echo "  <div class='card-footer text-muted'>";
-                echo "      <a id='visualizzac' data-bs-target='#myModal$numerop' data-bs-toggle='modal'>visualizza i commenti</a>";
+                echo "      <a id='visualizzac' data-bs-target='#myModal$numerop' data-bs-toggle='modal'>Visualizza i commenti</a>";
                 echo "      <div id='myModal$numerop' class='modal fade' tabindex='-1'>";
                 echo "          <div class='modal-dialog'>";
                 echo"               <div class='modal-content'>  <!-- contenuto della finestra modale-->";
-                echo"                   <div class='modal-header'> <!-- HEADER-->";
+                echo"                   <div class='modal-header' style='background-color: #247ba0; color: white;'> <!-- HEADER-->";
                 echo"                   I commenti al post";
                 echo"                   <button class='btn-close' data-bs-dismiss='modal'></button> <!--crocetta per chiudere-->";
                 echo"               </div>";
@@ -65,31 +65,28 @@
                 echo"               </div>";
                 echo"           </div> <!--BODY-->";
                 echo"            <div class='modal-footer'> <!--FOOTER-->
-                                    <button class='btn btn-danger' data-bs-dismiss='modal'>Chiudi</button>      
+                                        
                                 </div>
                             </div>
                         </div>
                     </div>
         
         <!--tasto commenta-->
-        <button id='scrivic' class='btn btn-success btn-sm float-end' data-bs-target='#myModalp$numerop' data-bs-toggle='modal'> Scrivi un commento
+        <button id='scrivic' class='btn btn-sm float-end' data-bs-target='#myModalp$numerop' data-bs-toggle='modal'> Scrivi un commento
         </button>
         <div id='myModalp$numerop' class='modal fade' tabindex='-1'>
             <div class='modal-dialog'>
                 <div class='modal-content'>  <!-- contenuto della finestra modale-->
-                    <div class='modal-header'> <!-- HEADER-->
+                    <div class='modal-header' style='background-color: #247BA0; color: white;'> <!-- HEADER-->
                         Scrivi un commento
-                        <button class='btn-close' data-bs-dismiss='modal'></button> <!--crocetta per chiudere-->
+                        <button class='btn-close btn-close-white' data-bs-dismiss='modal'></button> <!--crocetta per chiudere-->
                     </div>
                     <div class='modal-body'>
                         <form action='../post/inserisciCommenti.php?numerop=$numerop' method='post' name='pubblicaCommento'>
-                            <textarea name='contenuto' id='contenuto' class='form-control' size='250' maxlength='250' placeholder='...' required></textarea>
+                            <textarea name='contenuto' id='contenuto' class='form-control mb-2' size='250' maxlength='250' placeholder='...' required></textarea>
                             <button type='submit' class='btn btn-outline-success'>Pubblica</button>
-                            <button type='reset' class='btn btn-outline-warning'>Reset </button>
+                            <button type='reset' class='btn btn-outline-danger'>Reset </button>
                     </form>
-                    </div> <!--BODY-->
-                    <div class='modal-footer'> <!--FOOTER-->  
-                        <button class='btn btn-danger' data-bs-dismiss='modal'>Chiudi</button>
                     </div>
                 </div>
             </div>

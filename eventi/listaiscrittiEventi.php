@@ -12,13 +12,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista Eventi</title>
-    <style>
-        .card-b {
-            min-height: 300px;
-            min-width: 300px;
-            margin-right: 5px;
-        }
-    </style>
 </head>
 <body>
     <div class="container-fluid py-2 " style="overflow-y:scroll; overflow-y:auto;">
