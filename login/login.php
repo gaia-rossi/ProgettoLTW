@@ -55,6 +55,11 @@
 
                     if (isset($_POST['rmb'])) {
                         setcookie("currentuser", $email . "," . $pswrd);
+                    } else {
+                        if (isset($_COOKIE['currentuser'])) {
+                            unset($_COOKIE['currentuser']); 
+                            setcookie('currentuser', '', time() - 3600);
+                        }
                     }
 
                     header("Location: ../paginaIniziale.html?name=$name");
