@@ -47,6 +47,10 @@ body {
     margin-right: 10px;
 }
 
+.nav-item:hover {
+    text-decoration: underline;
+}
+
 [type=radio] {
     position: absolute;
     opacity: 0;
