@@ -50,7 +50,7 @@ function gestioneIscrizioni(){
             function(responseTxt, statusTxt, xhr){
                 if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
             });
-            document.getElementById("subButton").innerText = "Disiscriviti!";  
+            document.getElementById("subText").innerText = "Disiscriviti!";  
         }else{
             $("#roba").load("../eventi/annullaiscrizioneEvento.php",
             function(responseTxt, statusTxt, xhr){
@@ -58,7 +58,7 @@ function gestioneIscrizioni(){
             });
             $("#cardPost").hide();
             $("#zonaPost").hide();
-            document.getElementById("subButton").innerText = "Iscriviti!";
+            document.getElementById("subText").innerText = "Iscriviti!";
         }
     });
 }
@@ -75,8 +75,7 @@ function gestionePost(){
                 $("#cardPost").hide();
                 $("#zonaPost").hide();
             }else{
-                //document.getElementById("subButton").disabled = true;
-                document.getElementById("subButton").innerText = "Disiscriviti!";
+                document.getElementById("subText").innerText = "Disiscriviti!";
             }
         },
         error: function(){
