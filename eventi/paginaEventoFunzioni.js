@@ -27,11 +27,26 @@ function inizializza(){
         });
 
          // jquery per tasto iscrizioni
+         //iscrizione e disiscrizione
          $("#subButton").click(function(){
-            $("#roba").load("../eventi/iscrizioneEvento.php",
+            var t = $("#subButton").text();
+            t = t.trim();
+            if(t == "Iscriviti!"){
+                $("#roba").load("../eventi/iscrizioneEvento.php",
                 function(responseTxt, statusTxt, xhr){
                     if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
-            });
+                });
+                document.getElementById("subButton").innerText = "Disiscriviti!";  
+            }else{
+                $("#roba").load("../eventi/annullaiscrizioneEvento.php",
+                function(responseTxt, statusTxt, xhr){
+                    if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
+                });
+                $("#cardPost").hide();
+                $("#zonaPost").hide();
+                document.getElementById("subButton").innerText = "Iscriviti!";
+            }
+            
            
         });
 
@@ -48,7 +63,8 @@ function inizializza(){
                     $("#cardPost").hide();
                     $("#zonaPost").hide();
                 }else{
-                    document.getElementById("subButton").disabled = true;
+                    //document.getElementById("subButton").disabled = true;
+                    document.getElementById("subButton").innerText = "Disiscriviti!";
                 }
             },
             error: function(){

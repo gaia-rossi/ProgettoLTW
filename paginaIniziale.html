@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+    <link rel="Website Icon" type="png" href="./icons/WE.png">
     <title>Pagina Iniziale</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,7 +45,7 @@
           
         </ul>
           <!--fine menu a discesa-->
-          <form action="./eventi/cercaEvento.php" method="POST" class="d-flex" role="search" name="searchBar" onsubmit="return verifica();">
+          <form autocomplete="off" action="./eventi/cercaEvento.php" method="POST" class="d-flex" role="search" name="searchBar" onsubmit="return verifica();">
             <input class="form-control me-2" name="bar" id="bar" type="search" placeholder="Search" aria-label="Search" size="45">
             <button class="btn btn-outline-dark" id="barButton" type="submit"><img src="./icons/search.svg"  class="format-white"></button>
           </form>
