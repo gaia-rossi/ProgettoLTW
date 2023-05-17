@@ -22,7 +22,7 @@
             $query = "SELECT * from evento where nome=$1 and dataE=$2";
             $result = pg_query_params($dbconn, $query, array($nomeEvento, $dataEvento));
             if($line=pg_fetch_array($result)){
-                echo "L'evento è già stato creato! clicca <a href='./paginaIniziale.html'> QUI </a>
+                echo "L'evento è già stato creato! clicca <a href='../paginaIniziale.html'> QUI </a>
                     vedere tutti gli eventi"; //cambiare indirizzo
             } else {
                 $categoria = $_POST["categoria"];
@@ -37,7 +37,7 @@
                             VALUES ($1, $2, $3)";
                     $result3 = pg_query_params($dbconn, $query3,array($organizzatore, $nomeEvento, $dataEvento));
                     if($result3){
-                        header("Location: ./paginaIniziale.html");
+                        header("Location: ../paginaIniziale.html");
                         exit();
                     }
                 } else {

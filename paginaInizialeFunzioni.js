@@ -13,7 +13,7 @@ function loadEventi(){
 }
 
 function loadBenvenuto(){
-  $("#zonadibenvenuto").load("inizializzazioneSession.php",
+  $("#zonadibenvenuto").load("./paginaIniziale/inizializzazioneSession.php",
     function(responseTxt, statusTxt, xhr){
       if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
     });
@@ -54,7 +54,7 @@ function setupOrganizzatore(){
   $.ajax({
     async:true,
     type: "POST",
-    url: './organizzatore.php',
+    url: './paginaIniziale/organizzatore.php',
     dataType: 'json',
     success: function(result){
       var j = result['organizzatore'];
