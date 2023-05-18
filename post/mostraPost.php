@@ -18,25 +18,16 @@
             $evento = $_SESSION["iscrizioneevento"];
             $data = $_SESSION["iscrizionedata"];
             //query per cercare tutti i post su quell'evento
-            $query = "SELECT * from post where nomee=$1 and datae=$2";
+            $query = "SELECT * from post p join utente u on p.autore=u.email where nomee=$1 and datae=$2";
             $result = pg_query_params($dbconn, $query, array($evento, $data));
             $line=pg_fetch_array($result, null, PGSQL_ASSOC);
             while($line != false){
                 $utente =$line["autore"];
                 $contenuto=$line["contenuto"];
+                $headc = $line["head"];
 
                 //query per cercare tutti i commenti a quel post
                 $numerop=$line["numero"];
-
-                //
-                $headc = "#247BA0";
-                $queryhead = "SELECT head from utente where email=$1";
-                $resulthead = pg_query_params($dbconn, $queryhead, array($utente));
-                $linehead = pg_fetch_array($resulthead, null, PGSQL_ASSOC);
-                if ($linehead != false) {
-                    $headc = $linehead["head"];
-                }
-                //
 
                 //style='background-color: #247BA0;'
                 echo "<div class='card mb-2'>";
