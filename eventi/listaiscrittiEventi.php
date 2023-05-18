@@ -30,7 +30,7 @@
                 $line2=pg_fetch_array($result2, null, PGSQL_ASSOC);
                 $categoria = $line2["categoria"];
                 echo"<div class='card card-b' style='width: 18rem;'>";
-                echo"  <img class='card-img-top' src='./icons/$categoria.jpg' alt='Card image cap'>";
+                echo"  <img class='card-img-top' src='./icons/$categoria.jpg' alt='$categoria'>";
                 echo"  <div class='card-body'>";
                 echo"       <h5 class='card-title'>$nome</h5>";
                 echo"       <p class='card-text'>L'evento si terrà in data: $data </p>";

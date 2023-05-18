@@ -36,7 +36,7 @@ function inizializzazioneCopertina(){
             document.getElementById("dataEventoShort").innerHTML = datae;
             document.getElementById("infoEventoShort").innerHTML = infoevento;
             document.getElementById("organizzatoreShort").innerHTML = organizzatore;
-            
+
             document.getElementById("catEvento").innerHTML = categoria;
             document.getElementById("catEventoShort").innerHTML = categoria;
 
@@ -50,7 +50,7 @@ function inizializzazioneCopertina(){
 
 function gestioneIscrizioni(){
     $("#subButton").click(function(){
-        var t = $("#subButton").text();
+        var t = $("#subText").text();
         t = t.trim();
         if(t == "Iscriviti!"){
             $("#roba").load("../eventi/iscrizioneEvento.php",
@@ -64,7 +64,7 @@ function gestioneIscrizioni(){
                 if(statusTxt == "error") alert("Errore" + xhr.status + ": " + xhr.statusText+ " " + this.innerHTML);
             });
             $("#cardPost").hide();
-            $("#zonaPost").hide();
+            $("#zonapost").hide();
             document.getElementById("subText").innerText = "Iscriviti!";
         }
     });
@@ -80,7 +80,7 @@ function gestionePost(){
             var res = result["iscritto"];
             if(res == 0){
                 $("#cardPost").hide();
-                $("#zonaPost").hide();
+                $("#zonapost").hide();
             }else{
                 document.getElementById("subText").innerText = "Disiscriviti!";
             }
