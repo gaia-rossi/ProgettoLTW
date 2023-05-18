@@ -28,9 +28,19 @@
                 //query per cercare tutti i commenti a quel post
                 $numerop=$line["numero"];
 
+                //
+                $headc = "#247BA0";
+                $queryhead = "SELECT head from utente where email=$1";
+                $resulthead = pg_query_params($dbconn, $queryhead, array($utente));
+                $linehead = pg_fetch_array($resulthead, null, PGSQL_ASSOC);
+                if ($linehead != false) {
+                    $headc = $linehead["head"];
+                }
+                //
 
+                //style='background-color: #247BA0;'
                 echo "<div class='card mb-2'>";
-                echo "  <div class='card-header' style='background-color: #247BA0; color:white;'>";
+                echo "  <div class='card-header' style='background-image: url($headc); color:white; background-position: center center;'>";
                 echo        $utente;
                 echo "  </div>";            
                 echo "  <div class='card-body'>";
