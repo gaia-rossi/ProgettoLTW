@@ -6,7 +6,7 @@
 <?php
 
     if($dbconn){
-        $query = "SELECT distinct * from evento";
+        $query = "SELECT distinct nome from evento";
         $result = pg_query($dbconn, $query);
         $line=pg_fetch_array($result, null, PGSQL_ASSOC);
         $res= array();

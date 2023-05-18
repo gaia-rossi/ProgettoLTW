@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.css" />
     <script defer src="./bootstrap/js/bootstrap.bundle.js"></script>
 
+    <!--IMPORT VUE-->
+    <script src="https://unpkg.com/vue@3"></script>
+
     <!-- IMPORT FILE JAVASCRIPT -->
     <script src="./paginaIniziale/paginaInizialeFunzioni.js" type="application/javascript"></script>
     <style>
@@ -56,9 +59,9 @@
           <form action="./eventi/cercaEvento.php" method="POST" class="d-flex" role="search" name="searchBar" onsubmit="return verifica();">
             <input autocomplete="off" class="form-control me-2" name="bar" id="bar" type="search" placeholder="Search" aria-label="Search" size="45" list="listaeventi">
               <datalist id="listaeventi">
-                  <option value="insufficiente">
-                  <option value="sufficiente"> 
-                  <option value="ottimo">
+                  <option v-for="item in nomi" :key="item" :value="item">
+                  <!--<option value="sufficiente"> 
+                  <option value="ottimo">-->
               </datalist>
             </input>
             <button class="btn btn-outline-dark" id="barButton" type="submit"><img src="./icons/search.svg"  class="format-white"></button>

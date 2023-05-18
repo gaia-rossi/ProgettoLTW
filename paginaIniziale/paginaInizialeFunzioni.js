@@ -85,19 +85,26 @@ function setupAreaRiservata(){
 }
 
 function autocompleta(){
-  $.ajax({
-    async:true,
-    type: "POST",
-    url: './nomieventi.php',
-    dataType: 'json',
-    success: function(result){
-      var x = result["risultato"];
-      //todo  
-    },
-    error: function(){
-      alert("Chiamata fallita per nascondere evento!!!");
-    }
-  });
+    $.ajax({
+      async:true,
+      type: "POST",
+      url: 'paginaIniziale/nomieventi.php',
+      dataType: 'json',
+      success: function(result){
+        var x = result["risultato"];
+        let app = Vue.createApp({
+          data: function(){
+            return {
+              nomi: x
+            }
+          }
+        });
+        app.mount("#listaeventi");
+      },
+      error: function(){
+        alert("errore nel completamento automatico");
+      }
+    });
 }
 
 function inizializza(){
@@ -114,6 +121,7 @@ function inizializza(){
       selezionePerCategoria();
       setupOrganizzatore();
       setupAreaRiservata();
+      autocompleta();
     });
     return true;
 }
