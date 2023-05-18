@@ -26,8 +26,8 @@
                         VALUES ($1, $2, $3)";
             $result = pg_query_params($dbconn, $query,array($npost, $contenuto, $utente));
             if($result){
-                echo "Commento a $npost inserito correttamente!<br>
-                clicca <a href='../eventi/paginaEvento.html'> QUI </a> per vedere la lista degli eventi aggiornata";
+                header("Location: ../eventi/paginaEvento.html");
+                exit();
             } else {
                 die("Qualcosa è andato storto. Prova di nuovo");
             }
