@@ -49,6 +49,11 @@ body {
     text-decoration: underline;
 }
 
+#myoverflow {
+    overflow: hidden;
+    overflow-wrap: break-word;
+}
+
 .format-white {
     margin: 0px;
     margin-right: 5px;
