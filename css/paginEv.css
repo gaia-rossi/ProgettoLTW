@@ -1,0 +1,93 @@
+body {
+    padding-top: 80px;
+}
+
+#fotoCategoria img {
+    width: 100%;
+    border-radius: 25px;
+    box-shadow: 0 3px 6px 0 black;
+}
+
+#cardPost {
+    text-align: center;
+}
+
+.card-img-overlay {
+    width: 30%;
+    backdrop-filter: blur(10px);
+    border: 2px solid #323232;
+}
+
+#subButton {
+    align-items: start;
+    background-color: #323232;
+    color: white;
+}
+
+#subButton:hover {
+    background-color: navy;
+}
+
+#scrivic {
+    background-color: #247BA0;
+    color: white;
+}
+
+#scrivic:hover {
+    background-color: navy;
+}
+
+#visualizzac {
+    cursor: pointer;
+}
+
+#visualizzac:hover {
+    text-decoration: underline;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.format-white {
+    margin: 0px;
+    margin-right: 5px;
+    padding: 0px;
+    margin-bottom: 5px;
+    width: 15px;
+    height: 15px;
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(225deg) brightness(104%) contrast(103%);
+}
+
+.short-text {
+    display: none;
+}
+
+.full-text {
+    font-size: small;
+}
+
+@media (max-width: 990px) {
+    .card-img-overlay {
+        width: 100%;
+        backdrop-filter: blur(10px);
+        border: 2px solid #323232;
+        border-top-right-radius: 25px !important;
+        border-bottom-right-radius: 25px !important;
+        font-size: small;
+        font-weight: normal;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    #cardPost {
+        margin-top: 0px;
+        text-align: center;
+    }
+    #pubb {
+        margin-bottom: 2px;
+    }
+    .short-text { display: inline-block; }
+    .full-text { display: none; }
+}

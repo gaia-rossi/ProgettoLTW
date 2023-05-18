@@ -29,10 +29,9 @@
                 //query per cercare tutti i commenti a quel post
                 $numerop=$line["numero"];
 
-
                 echo "  <div class='card card-b'>
                             <div class='card-header'>
-                                <img src='$pfpicUtente' alt='iconaprofilo' style='width: 30px; margin: 10px;'>
+                                <img src='$pfpicUtente' alt='iconaprofilo' style='width: 30px; margin: 10px; color:white;'>
                                 $utente
                             </div>            
                             <div class='card-body'>
@@ -53,6 +52,7 @@
                                                 $utente ha scritto: $contenuto
                                             </div>
                                             <div class='container'>";
+
                 
                 $query2 = "SELECT * from commenti c join utente a on c.autore=a.email where numerop=$1";
                 $result2 = pg_query_params($dbconn, $query2, array($numerop));
@@ -73,6 +73,7 @@
                     echo "</div>";
                     $line2=pg_fetch_array($result2, null, PGSQL_ASSOC); 
                 }
+              
                 echo"                       </div>
                                         </div> <!--BODY-->
                                     </div>
@@ -80,20 +81,20 @@
                             </div>
             
                     <!--tasto commenta-->
-                            <button id='scrivic' class='btn btn-success btn-sm float-end' data-bs-target='#myModalp$numerop' data-bs-toggle='modal'> Scrivi un commento
+                            <button id='scrivic' class='btn btn-sm float-end' data-bs-target='#myModalp$numerop' data-bs-toggle='modal'> Scrivi un commento
                             </button>
                             <div id='myModalp$numerop' class='modal fade' tabindex='-1'>
                                 <div class='modal-dialog'>
                                     <div class='modal-content'>  <!-- contenuto della finestra modale-->
-                                        <div class='modal-header'> <!-- HEADER-->
+                                        <div class='modal-header' style='background-color: #247BA0; color: white;'> <!-- HEADER-->
                                             Scrivi un commento
-                                            <button class='btn-close' data-bs-dismiss='modal'></button> <!--crocetta per chiudere-->
+                                            <button class='btn-close btn-close-white' data-bs-dismiss='modal'></button> <!--crocetta per chiudere-->
                                         </div>
                                         <div class='modal-body'>
                                             <form action='../post/inserisciCommenti.php?numerop=$numerop' method='post' name='pubblicaCommento'>
-                                                <textarea name='contenuto' id='contenuto' class='form-control' size='250' maxlength='250' placeholder='...' required></textarea>
+                                                <textarea name='contenuto' id='contenuto' class='form-control mb-2' size='250' maxlength='250' placeholder='...' required></textarea>
                                                 <button type='submit' class='btn btn-outline-success'>Pubblica</button>
-                                                <button type='reset' class='btn btn-outline-warning'>Reset </button>
+                                                <button type='reset' class='btn btn-outline-danger'>Reset </button>
                                             </form>
                                         </div> <!--BODY-->
                                     </div>
