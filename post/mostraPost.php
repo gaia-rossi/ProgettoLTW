@@ -24,13 +24,14 @@
             while($line != false){
                 $utente =$line["autore"];
                 $contenuto=$line["contenuto"];
+                $headc = $line["head"];
                 $pfpicUtente = $line["pfpic"];
 
                 //query per cercare tutti i commenti a quel post
                 $numerop=$line["numero"];
 
-                echo "  <div class='card card-b'>
-                            <div class='card-header'>
+                echo "  <div class='card mb-2'>
+                            <div class='card-header' style='background-image: url($headc); color:white; background-position: center center;'>
                                 <img src='$pfpicUtente' alt='iconaprofilo' style='width: 30px; margin: 10px; color:white;'>
                                 $utente
                             </div>            
@@ -42,9 +43,9 @@
                                 <div id='myModal$numerop' class='modal fade' tabindex='-1'>
                                     <div class='modal-dialog'>
                                         <div class='modal-content'>  <!-- contenuto della finestra modale-->
-                                            <div class='modal-header'> <!-- HEADER-->
+                                            <div class='modal-header' style='background-color: #247ba0; color: white;'> <!-- HEADER-->
                                                 I commenti al post
-                                                <button class='btn-close' data-bs-dismiss='modal'></button> <!--crocetta per chiudere-->
+                                                <button class='btn-close btn-close-white' data-bs-dismiss='modal'></button> <!--crocetta per chiudere-->
                                             </div>
                                             <div class='modal-body'>
                                             <div class='container'>
@@ -52,7 +53,6 @@
                                                 $utente ha scritto: $contenuto
                                             </div>
                                             <div class='container'>";
-
                 
                 $query2 = "SELECT * from commenti c join utente a on c.autore=a.email where numerop=$1";
                 $result2 = pg_query_params($dbconn, $query2, array($numerop));
