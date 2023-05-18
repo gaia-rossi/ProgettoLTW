@@ -18,7 +18,7 @@
             $evento = $_SESSION["iscrizioneevento"];
             $data = $_SESSION["iscrizionedata"];
             //query per cercare tutti i post su quell'evento
-            $query = "SELECT * from post p join utente a on p.autore=a.email where nomee=$1 and datae=$2";
+            $query = "SELECT * from post p join utente u on p.autore=u.email where nomee=$1 and datae=$2";
             $result = pg_query_params($dbconn, $query, array($evento, $data));
             $line=pg_fetch_array($result, null, PGSQL_ASSOC);
             while($line != false){

@@ -31,7 +31,6 @@ function inizializzazioneCopertina(){
             document.getElementById("infoEvento").innerHTML = infoevento;
             document.getElementById("organizzatore").innerHTML = organizzatore;
 
-            
             document.getElementById("catEvento").innerHTML = categoria;
             document.getElementById("fotoCategoria").innerHTML = "<img src='../icons/" + categoria + ".jpg' class='card-img' alt='$categoria'>"
         },
