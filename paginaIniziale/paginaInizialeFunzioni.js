@@ -84,6 +84,22 @@ function setupAreaRiservata(){
   });
 }
 
+function autocompleta(){
+  $.ajax({
+    async:true,
+    type: "POST",
+    url: './nomieventi.php',
+    dataType: 'json',
+    success: function(result){
+      var x = result["risultato"];
+      //todo  
+    },
+    error: function(){
+      alert("Chiamata fallita per nascondere evento!!!");
+    }
+  });
+}
+
 function inizializza(){
     //inizializzazione local storage
     var x = JSON.parse(localStorage.utente);
