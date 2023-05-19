@@ -58,11 +58,12 @@
           <!--fine menu a discesa-->
           <form action="./eventi/cercaEvento.php" method="POST" class="d-flex" role="search" name="searchBar" onsubmit="return verifica();">
             <input autocomplete="off" class="form-control me-2" name="bar" id="bar" type="search" placeholder="Search" aria-label="Search" size="45" list="listaeventi">
-              <datalist id="listaeventi">
+              <div style="height: 10px; overflow-x: hidden; overflow-y: auto;">
+                <datalist id="listaeventi">
                   <option v-for="item in nomi" :key="item" :value="item">
-                  <!--<option value="sufficiente"> 
-                  <option value="ottimo">-->
               </datalist>
+              </div>
+              
             </input>
             <button class="btn btn-outline-dark" id="barButton" type="submit"><img src="./icons/search.svg"  class="format-white"></button>
           </form>
