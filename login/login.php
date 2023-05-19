@@ -54,7 +54,8 @@
                     $_SESSION['email'] = $email;
 
                     if (isset($_POST['rmb'])) {
-                        setcookie("currentuser", $email . "," . $pswrd);
+                        $encrypted = base64_encode($pswrd);
+                        setcookie("currentuser", $email . "," . $encrypted);
                     } else {
                         if (isset($_COOKIE['currentuser'])) {
                             unset($_COOKIE['currentuser']); 

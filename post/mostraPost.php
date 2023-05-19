@@ -24,13 +24,14 @@
             while($line != false){
                 $utente =$line["autore"];
                 $contenuto=$line["contenuto"];
+                $headc = $line["head"];
                 $pfpicUtente = $line["pfpic"];
 
                 //query per cercare tutti i commenti a quel post
                 $numerop=$line["numero"];
 
-                echo "  <div class='card card-b'>
-                            <div class='card-header'>
+                echo "  <div class='card mb-2'>
+                            <div class='card-header' style='background-image: url($headc); color:white; background-position: center center;'>
                                 <img src='$pfpicUtente' alt='iconaprofilo' style='width: 30px; margin: 10px; color:white;'>
                                 $utente
                             </div>            
@@ -38,21 +39,19 @@
                                 $contenuto
                             </div>
                             <div class='card-footer text-muted'>
-                                <a id='visualizzac' data-bs-target='#myModal$numerop' data-bs-toggle='modal'>visualizza i commenti</a>
+                                <a id='visualizzac' data-bs-target='#myModal$numerop' data-bs-toggle='modal'>Visualizza i commenti</a>
                                 <div id='myModal$numerop' class='modal fade' tabindex='-1'>
                                     <div class='modal-dialog'>
                                         <div class='modal-content'>  <!-- contenuto della finestra modale-->
-                                            <div class='modal-header'> <!-- HEADER-->
-                                                I commenti al post
-                                                <button class='btn-close' data-bs-dismiss='modal'></button> <!--crocetta per chiudere-->
+                                            <div class='modal-header' style='background-color: #247ba0; color: white;'> <!-- HEADER-->
+                                                Commenti al post
+                                                <button class='btn-close btn-close-white' data-bs-dismiss='modal'></button> <!--crocetta per chiudere-->
                                             </div>
-                                            <div class='modal-body'>
+                                            <div class='modal-body' style='padding-right: 30px;'>
                                             <div class='container'>
-                                                <img src='$pfpicUtente' alt='iconaprofilo' style='width: 30px; margin: 10px;'>
-                                                $utente ha scritto: $contenuto
+                                                <img src='$pfpicUtente' alt='iconaprofilo' style='width: 30px; margin: 10px;'>$utente ha scritto: $contenuto
                                             </div>
                                             <div class='container'>";
-
                 
                 $query2 = "SELECT * from commenti c join utente a on c.autore=a.email where numerop=$1";
                 $result2 = pg_query_params($dbconn, $query2, array($numerop));
@@ -67,7 +66,7 @@
                     echo "  <div>";
                     echo "      <img src='$pfpicAutore' alt='iconaprofilo' style='width: 30px; margin: 10px;'>";
                     echo "  </div>";
-                    echo "  <div>";
+                    echo "  <div id='myoverflow'>";
                     echo "      $autore ha commentato: $commento <br>";
                     echo "  </div>";
                     echo "</div>";
