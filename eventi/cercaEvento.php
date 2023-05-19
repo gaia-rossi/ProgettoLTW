@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
     <script defer src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./css/pagin.css">
     <script src="../jquery-3.6.0.js"></script>
     <title>Ricerca Eventi</title>
     <style>
@@ -17,16 +18,22 @@
             min-height: 300px;
             min-width: 300px;
             margin-right: 5px;
+            box-shadow: 0px 3px 6px 0px #323232;
         }
     </style>
+    <!-- IMPORT FILE JAVASCRIPT -->
+    <script src="paginaEventoFunzioni.js" type="application/javascript"></script>
 
 </head>
-<body>
+<body onload="setupAreaRiservata()" style="background-color: #c1c8e4;">
     <!-- inclusione navbar-->
     <?php include "../navbar.html";?>
     <?php
         $r = $_POST["bar"];
-        echo "<h3> Ecco gli eventi che contengono '$r' nel titolo</h3></br>"; 
+        echo "<div class='container-fluid mycont mt-3 mb-3'>";
+        echo "  <img src = '../icons/check-circle-fill.svg' alt='Ricerca'>";
+        echo "  <label>Ecco gli eventi che contengono '$r' nel titolo</br></label>";
+        echo "</div>";
     ?>
 
     <div class="container-fluid py-2 " style="overflow-y:scroll; overflow-y:auto;">

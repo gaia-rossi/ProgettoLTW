@@ -6,7 +6,8 @@ $pass = "";
 if(isset($_COOKIE["currentuser"])){
     $pieces = explode(",", $_COOKIE["currentuser"]);
     $mail = $pieces[0];
-    $pass = $pieces[1];
+    $crypt = $pieces[1];
+    $pass = base64_decode($crypt);
 }
 
 
