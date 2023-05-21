@@ -35,26 +35,6 @@
         });
     </script>
 
-    <!-- UTILIZZO AJAX 
-    <script>
-        document.getElementById("modifica").onclick = caricaDocumento;
-
-        function caricaDocumento(e) {
-            var httpRequest = new XMLHttpRequest();
-            httpRequest.onreadystatechange = gestisciResponse;
-            httpRequest.open("GET", e.target.innerHTML + ".php", true);
-            httpRequest.send();
-        }
-
-        function gestisciResponse(e) {
-            if (e.target.readyState == 4 && e.target.status == 200) {
-                document.getElementById("passDinamica").innerHTML
-                = e.target.responseText;
-            }
-        }
-    </script>
-    -->
-
 </head>
 <body>
 
@@ -191,7 +171,7 @@
                             <div class="form-group mb-1" name="div_mail">
                                 <label for="mail-input">Indirizzo Email</label>
                                 <input name="insert_email" type="email" class="form-control" id="mail-input"
-                                    value="<?php echo"$mail" ?>" readonly disabled>
+                                    value="<?php echo"$mail" ?>" required readonly disabled>
                             </div>
 
                             <!-- INSERIMENTO REGIONE E CITTÀ -->
