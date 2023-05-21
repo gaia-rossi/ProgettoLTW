@@ -26,6 +26,8 @@ function inizializzazioneCopertina(){
             var categoria =result['categoria'];
             var infoevento=result['info'];
             var organizzatore=result['organizzatore'];
+            
+            //short serve a mostrare div che vengono mostrati solo quando si attiva la media query 
 
             document.getElementById("nomeEvento").innerHTML = nomee;
             document.getElementById("dataEvento").innerHTML = datae;
