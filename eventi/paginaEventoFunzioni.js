@@ -42,7 +42,14 @@ function inizializzazioneCopertina(){
             document.getElementById("catEvento").innerHTML = categoria;
             document.getElementById("catEventoShort").innerHTML = categoria;
 
-            document.getElementById("fotoCategoria").innerHTML = "<img src='../icons/" + categoria + ".jpg' class='card-img' alt='$categoria'>"
+            document.getElementById("fotoCategoria").innerHTML = "<img src='../icons/" + categoria + ".jpg' class='card-img' alt='$categoria'>";
+
+            //nasconde tasto sub se l'utente che visita l'evento è l'organizzatore di quest'ultimo
+            var l = JSON.parse(localStorage.utente);
+            var utentelocal = l["email"];
+            if(utentelocal == organizzatore){
+                $("#subButton").hide();
+            }
         },
         error: function(){
           alert("Chiamata fallita per nascondere evento!!!");
