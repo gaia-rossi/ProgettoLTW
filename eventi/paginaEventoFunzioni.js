@@ -44,7 +44,7 @@ function inizializzazioneCopertina(){
 
             document.getElementById("fotoCategoria").innerHTML = "<img src='../icons/" + categoria + ".jpg' class='card-img' alt='$categoria'>"
         
-            // Nascondo il tasto subButton se l'utente è l'organizzatore dell'evento
+            // Nascondo il tasto subButton se l'utente che visita l'evento è l'organizzatore di quest'ultimo
             var l = JSON.parse(localStorage.utente);
             var utentelocal = l["email"];
             if (utentelocal == organizzatore) {
