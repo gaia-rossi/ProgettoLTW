@@ -66,7 +66,30 @@
                 <div class="col col1 mb-2">
                     <img src = "../icons/geo-alt-fill.svg" alt="Regione" class="format-white"/>
                     <label for="region-input">Regione di residenza</label>
-                    <input type="text" name="insert_region" class="form-control myinputs mymedia" placeholder="Regione" id="region-input">
+                    
+                    <input type="text" name="insert_region" autocomplete="off" class="form-control myinputs mymedia" placeholder="Regione" id="region-input" list="Regione" required>
+                    <datalist id="Regione">
+                        <option value = "Valle D'Aosta">
+                        <option value = "Piemonte">
+                        <option value = "Liguria">
+                        <option value = "Lombardia">
+                        <option value = "Veneto">
+                        <option value = "Trentino">
+                        <option value = "Friuli">
+                        <option value = "Emilia">
+                        <option value = "Toscana">
+                        <option value = "Marche">
+                        <option value = "Umbria">
+                        <option value = "Lazio">
+                        <option value = "Abruzzo">
+                        <option value = "Molise">
+                        <option value = "Campania">
+                        <option value = "Basilicata">
+                        <option value = "Puglia">
+                        <option value = "Calabria">
+                        <option value = "Sicilia">
+                        <option value = "Sardegna">
+                    </datalist>
                 </div>
                 <div class="col col2 mb-2">
                     <img src = "../icons/house-door.svg" alt="Città" class="format-white"/>

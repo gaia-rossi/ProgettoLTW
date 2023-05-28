@@ -18,6 +18,12 @@ function check_pswrd() {
     return (elem.value != "" && (elem.value == confirm.value));
 }
 
+function check_pswrd_len() {
+    const elem = document.getElementById("pswd-input");
+    console.log(elem.value);
+    return (elem.length >= 8);
+}
+
 function check_region() {
     const elem = document.getElementById("region-input");
     console.log(elem.value);
@@ -48,6 +54,11 @@ function check_form() {
         return false;
     }
 
+    if (!check_pswrd_len()) {
+        alert("La password è troppo corta! Deve essere almeno di 8 caratteri.");
+        return false;
+    }
+
     if (!check_region()) {
         alert("Devi selezionare una regione di residenza!");
         return false;
@@ -58,13 +69,5 @@ function check_form() {
         return false;
     }
 
-    /*
-    var remember = document.getElementById("rmbr").checked;
-    if (remember) {
-        window.alert("Hai scelto di essere ricordato per i prossimi accessi.");
-    } else {
-        window.alert("Hai scelto di non essere ricordato per i prossimi accessi");
-    }
-    */
     return true;
 }

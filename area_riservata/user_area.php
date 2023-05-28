@@ -143,7 +143,7 @@
         <!-- NUOVA PASSWORD -->
         <div class="text-center mb-2" name="div_newpass">
             <button class="btn btn-outline-dark mb-2" id="modifica">Modifica Password</button>
-            <form action="updatePassword.php" method="post" name="modificaPassword">
+            <form action="updatePassword.php" method="post" name="modificaPassword" onsubmit="return check_pass();">
                 <div id="passDinamica" class="form-group mb-1" style="display: none;">
                     <label for="pswd-new" id="lb_pass">Nuova Password</label>
                     <input name="new_pswrd" type="password" class="form-control mb-2" id="pswd-new" required>
@@ -177,7 +177,29 @@
                             <!-- INSERIMENTO REGIONE E CITTÀ -->
                             <div class="form-group mb-1">
                                 <label for="region-input">Regione di residenza</label>
-                                <input type="text" name="insert_region" class="form-control" value="<?php echo"$regione" ?>" id="region-input" required>
+                                <input type="text" name="insert_region" autocomplete="off" class="form-control" value="<?php echo"$regione" ?>" id="region-input" list="Regione" required>
+                                <datalist id="Regione">
+                                    <option value = "Valle D'Aosta">
+                                    <option value = "Piemonte">
+                                    <option value = "Liguria">
+                                    <option value = "Lombardia">
+                                    <option value = "Veneto">
+                                    <option value = "Trentino">
+                                    <option value = "Friuli">
+                                    <option value = "Emilia">
+                                    <option value = "Toscana">
+                                    <option value = "Marche">
+                                    <option value = "Umbria">
+                                    <option value = "Lazio">
+                                    <option value = "Abruzzo">
+                                    <option value = "Molise">
+                                    <option value = "Campania">
+                                    <option value = "Basilicata">
+                                    <option value = "Puglia">
+                                    <option value = "Calabria">
+                                    <option value = "Sicilia">
+                                    <option value = "Sardegna">
+                                </datalist>
                             </div>
 
                             <div class="form-group mb-1">
