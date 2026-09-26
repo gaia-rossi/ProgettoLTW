@@ -33,6 +33,7 @@ gestione_errori.php                  # Shared error-message page
 
 Serve the project root with a PHP-enabled web server pointed at PostgreSQL with the `WEvent` schema created, then open `index.html`.
 
-## Author
+## Authors
 
-Gaia Rossi
+- Gaia Rossi
+- Alessio Vernarelli
